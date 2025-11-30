@@ -33,6 +33,7 @@ import menu_icon_dark from './menu_icon_dark.svg'
 import sun_icon from './sun_icon.svg'
 import moon_icon from './moon_icon.svg'
 import loader_logo from './loader_logo.png'
+import qubo_loader from './qubo loader.mp4'
 
 export const company_logos = [
   microsoft_logo,
@@ -72,7 +73,8 @@ const assets = {
   menu_icon_dark,
   sun_icon,
   moon_icon,
-  loader_logo
+  loader_logo,
+  qubo_loader
 }
 
 export default assets
