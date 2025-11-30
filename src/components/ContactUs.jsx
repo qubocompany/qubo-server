@@ -36,10 +36,10 @@ const ContactUs = ({ isPage = false }) => {
       id='contact-us'
       className={`flex justify-center items-center px-4 sm:px-12 lg:px-24 xl:px-40 ${isPage ? 'min-h-screen pt-32 pb-20 bg-slate-50 dark:bg-black' : 'py-20'}`}>
 
-      <div className='grid lg:grid-cols-2 gap-10 w-full max-w-6xl bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden'>
+      <div className='grid lg:grid-cols-2 gap-10 w-full max-w-6xl lg:bg-white lg:dark:bg-gray-900 lg:rounded-3xl lg:shadow-2xl lg:overflow-hidden'>
 
         {/* Left Side - Contact Info */}
-        <div className='bg-gradient-to-br from-[#5044E5] to-[#4d8cea] p-10 sm:p-12 text-white flex flex-col justify-between gap-10'>
+        <div className='bg-gradient-to-br from-[#5044E5] to-[#4d8cea] p-10 sm:p-12 text-white flex flex-col justify-between gap-10 rounded-3xl shadow-2xl lg:shadow-none lg:rounded-none'>
           <div>
             <h3 className='text-3xl font-semibold mb-4'>Get in Touch</h3>
             <p className='text-white/80 mb-8'>We are here to help you with any questions or concerns you may have.</p>
@@ -94,7 +94,7 @@ const ContactUs = ({ isPage = false }) => {
         </div>
 
         {/* Right Side - Form */}
-        <div className='p-10 sm:p-12'>
+        <div className='p-10 sm:p-12 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl lg:shadow-none lg:rounded-none lg:bg-transparent'>
           <h3 className='text-2xl font-semibold mb-6 text-gray-800 dark:text-white'>Have Any Question?</h3>
           <motion.form
             initial={{ opacity: 0 }}
