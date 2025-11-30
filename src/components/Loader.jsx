@@ -8,7 +8,8 @@ const Loader = () => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className='fixed inset-0 z-50 flex items-center justify-center bg-white'
+      className='fixed inset-0 z-50 flex items-center justify-center'
+      style={{ backgroundColor: '#F9FAFA' }}
     >
       <div className='flex items-center justify-center'>
         <video
@@ -17,7 +18,8 @@ const Loader = () => {
           loop
           muted
           playsInline
-          className='w-80 h-80 object-cover rounded-full'
+          className='w-80 h-80 object-contain'
+          style={{ backgroundColor: '#F9FAFA' }}
         />
       </div>
     </motion.div>
