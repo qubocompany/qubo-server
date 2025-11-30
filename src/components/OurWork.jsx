@@ -165,7 +165,6 @@ const OurWork = () => {
                                             src={work.image}
                                             className='w-full h-full object-contain'
                                             alt={work.title}
-                                            loading="lazy"
                                         />
                                     </div>
 
@@ -186,7 +185,6 @@ const OurWork = () => {
                                             src={work.image}
                                             className='w-full h-full object-cover rounded-xl'
                                             alt={work.title}
-                                            loading="lazy"
                                         />
                                     </div>
 
