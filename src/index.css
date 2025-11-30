@@ -49,3 +49,33 @@ body {
   --color-primary-light: #4d8cea;
   --gradient-primary: linear-gradient(to right, #5044E5, #4d8cea);
 }
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-float {
+  animation: float 2s ease-in-out infinite;
+}

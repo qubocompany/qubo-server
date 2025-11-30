@@ -103,10 +103,8 @@ const App = () => {
         href="https://wa.me/918838362439"
         target="_blank"
         rel="noopener noreferrer"
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         whileHover={{ scale: 1.1, opacity: 1 }}
-        className="fixed bottom-6 right-6 z-[999] bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 opacity-60 will-change-transform"
+        className="fixed bottom-6 right-6 z-[999] bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 opacity-60 will-change-transform lg:animate-float"
         aria-label="Chat on WhatsApp"
       >
         <svg
