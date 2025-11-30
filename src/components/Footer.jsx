@@ -20,18 +20,18 @@ const Footer = ({ theme }) => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          className='space-y-6 mb-6'>
+          className='flex flex-col-reverse md:flex-row justify-between items-start md:items-center gap-8 mb-6'>
 
           {/* Logo & Description - Full Width */}
-          <div className='space-y-4'>
+          <div className='space-y-4 md:max-w-md'>
             <img src={theme === 'dark' ? assets.logo_dark : assets.logo} className='w-32 sm:w-40' alt="Qubo Logo" />
-            <p className='text-sm text-gray-700 dark:text-gray-400 max-w-md'>
+            <p className='text-sm text-gray-700 dark:text-gray-400'>
               From strategy to execution, we craft digital solutions that move your business forward.
             </p>
           </div>
 
           {/* Quick Links & Docs - 2 Column Grid on All Screens */}
-          <div className='grid grid-cols-2 gap-6'>
+          <div className='grid grid-cols-2 gap-6 w-full md:w-auto'>
             {/* Navigation Links */}
             <div className='pr-6 border-r border-gray-300 dark:border-gray-600'>
               <h3 className='font-semibold text-gray-800 dark:text-gray-200 mb-4'>Quick Links</h3>
