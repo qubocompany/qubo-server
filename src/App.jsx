@@ -16,6 +16,7 @@ const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light')
   const [loading, setLoading] = useState(true)
   const [showProducts, setShowProducts] = useState(false)
+  const [showContact, setShowContact] = useState(false)
 
   const dotRef = useRef(null)
   const outlineRef = useRef(null)
@@ -68,10 +69,12 @@ const App = () => {
   return (
     <div className='dark:bg-black relative overflow-x-hidden overflow-y-auto max-w-full'>
       <Toaster />
-      <Navbar theme={theme} setTheme={setTheme} setShowProducts={setShowProducts} />
+      <Navbar theme={theme} setTheme={setTheme} setShowProducts={setShowProducts} setShowContact={setShowContact} />
 
       {showProducts ? (
         <Products />
+      ) : showContact ? (
+        <ContactUs isPage={true} />
       ) : (
         <>
           <Hero />

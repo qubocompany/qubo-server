@@ -3,7 +3,7 @@ import assets from '../assets/assets'
 import ThemeToggleBtn from './ThemeToggleBtn'
 import { motion } from "motion/react"
 
-const Navbar = ({ theme, setTheme, setShowProducts }) => {
+const Navbar = ({ theme, setTheme, setShowProducts, setShowContact }) => {
 
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [popupOpen, setPopupOpen] = useState(false) // State for popup visibility
@@ -12,13 +12,21 @@ const Navbar = ({ theme, setTheme, setShowProducts }) => {
     setSidebarOpen(false)
     if (section === 'products') {
       setShowProducts(true)
+      setShowContact(false)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else if (section === 'contact-us') {
+      setShowContact(true)
+      setShowProducts(false)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
       setShowProducts(false)
+      setShowContact(false)
       setTimeout(() => {
         const element = document.getElementById(section)
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' })
+        } else if (section === 'hero') {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
         }
       }, 100)
     }
@@ -46,7 +54,7 @@ const Navbar = ({ theme, setTheme, setShowProducts }) => {
           <a onClick={() => handleNavigation('products')} className='sm:hover:border-b cursor-pointer'>Products</a>
           <a onClick={() => handleNavigation('services')} className='sm:hover:border-b cursor-pointer'>Services</a>
           <a onClick={() => handleNavigation('our-work')} className='sm:hover:border-b cursor-pointer'>Our Work</a>
-          <a onClick={() => handleNavigation('contact-us')} className='sm:hover:border-b cursor-pointer'>Contact Us</a>
+          <a onClick={() => handleNavigation('contact-us')} className='sm:hover:border-b cursor-pointer'>Contact us</a>
         </div>
 
         <div className='flex items-center gap-2 sm:gap-4'>
