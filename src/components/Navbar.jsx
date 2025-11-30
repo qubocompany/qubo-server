@@ -53,7 +53,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact }) => {
           <a onClick={() => handleNavigation('hero')} href="#" className='sm:hover:border-b'>Home</a>
           <a onClick={() => handleNavigation('products')} className='sm:hover:border-b cursor-pointer'>Products</a>
           <a onClick={() => handleNavigation('services')} className='sm:hover:border-b cursor-pointer'>Services</a>
-          <a onClick={() => handleNavigation('our-work')} className='sm:hover:border-b cursor-pointer'>Our Work</a>
+          <a onClick={() => handleNavigation('our-work')} className='sm:hover:border-b cursor-pointer'>Tool Space</a>
           <a onClick={() => handleNavigation('contact-us')} className='sm:hover:border-b cursor-pointer'>Contact us</a>
         </div>
 
