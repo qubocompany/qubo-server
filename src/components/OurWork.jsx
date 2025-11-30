@@ -56,31 +56,61 @@ const OurWork = () => {
           }
         }
 
-        .shimmer-box {
-          position: relative;
-          overflow: hidden;
+        .glassmorphism-card {
+          background: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(30px) saturate(180%);
+          -webkit-backdrop-filter: blur(30px) saturate(180%);
+          border: 1.5px solid rgba(255, 255, 255, 0.3);
+          box-shadow: 0 12px 40px 0 rgba(80, 68, 229, 0.2),
+                      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
         }
 
-        .shimmer-box::before {
-          content: '';
+        .dark .glassmorphism-card {
+          background: rgba(255, 255, 255, 0.08);
+          border: 1.5px solid rgba(255, 255, 255, 0.15);
+          box-shadow: 0 12px 40px 0 rgba(80, 68, 229, 0.3),
+                      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
+
+        .project-logo {
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-logo:hover {
+          transform: scale(1.1) rotate(5deg);
+        }
+
+        .project-card-glow {
           position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.3) 50%,
-            rgba(255, 255, 255, 0) 100%
-          );
-          animation: shimmer 3s infinite;
-          pointer-events: none;
-          z-index: 1;
+          inset: -3px;
+          background: linear-gradient(135deg, #5044E5, #4d8cea);
+          border-radius: 16px;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          z-index: -1;
+          filter: blur(12px);
+        }
+
+        .glassmorphism-card:hover .project-card-glow {
+          opacity: 0.6;
         }
 
         @media (min-width: 768px) {
-          .shimmer-box::before {
+          .glassmorphism-card {
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: none;
+            box-shadow: none;
+          }
+
+          .dark .glassmorphism-card {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+          }
+
+          .project-card-glow {
             display: none;
           }
         }
@@ -94,7 +124,7 @@ const OurWork = () => {
                 id='our-work' className='flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-700 dark:text-white'>
                 <Title title='Our Projects' desc='From strategy to execution, we craft digital solutions that move your business forward.' />
 
-                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 w-full max-w-6xl'>
+                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-3 w-full max-w-6xl'>
                     {
                         workData.map((work, index) => (
                             <motion.div
@@ -103,27 +133,56 @@ const OurWork = () => {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 viewport={{ once: true }}
                                 key={index}
-                                className='relative group overflow-hidden rounded-xl cursor-pointer shimmer-box'>
-                                {/* Project Image */}
-                                <img src={work.image} className='w-full h-28 object-cover' alt={work.title} />
+                                className='relative group overflow-hidden rounded-xl cursor-pointer'>
 
-                                {/* Project Title - Always Visible */}
-                                <div className='absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3'>
-                                    <h3 className='text-white text-sm font-semibold'>{work.title}</h3>
-                                </div>
+                                {/* Glow Effect for Mobile */}
+                                <div className="project-card-glow"></div>
 
-                                {/* Hover Overlay with Description and Button */}
-                                <div className='absolute inset-0 bg-gradient-to-br from-[#5044E5]/95 to-[#4d8cea]/95 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 text-white'>
-                                    <h3 className='text-base font-bold mb-2'>{work.title}</h3>
-                                    <p className='text-xs text-center mb-3 leading-relaxed line-clamp-3'>{work.description}</p>
+                                {/* Mobile View - Glassmorphism Card */}
+                                <div className='md:hidden glassmorphism-card rounded-2xl p-6 h-full flex flex-col items-center justify-center text-center gap-4 min-h-[200px] relative z-10'>
+                                    {/* Clickable Logo */}
                                     <a
                                         href={work.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className='px-4 py-2 bg-white text-[#5044E5] rounded-full text-sm font-medium hover:scale-105 transition-transform duration-200 shadow-lg'
+                                        className='project-logo w-20 h-20 rounded-xl overflow-hidden shadow-xl bg-white/90 dark:bg-gray-800/90 p-2.5 flex items-center justify-center'
                                     >
-                                        View Live Project
+                                        <img
+                                            src={work.image}
+                                            className='w-full h-full object-contain'
+                                            alt={work.title}
+                                        />
                                     </a>
+
+                                    {/* Title */}
+                                    <h3 className='text-[15px] font-bold text-gray-800 dark:text-white leading-tight'>
+                                        {work.title}
+                                    </h3>
+                                </div>
+
+                                {/* Desktop View - Image with Hover Overlay */}
+                                <div className='hidden md:block'>
+                                    {/* Project Image */}
+                                    <img src={work.image} className='w-full h-28 object-cover' alt={work.title} />
+
+                                    {/* Project Title - Always Visible */}
+                                    <div className='absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3'>
+                                        <h3 className='text-white text-sm font-semibold'>{work.title}</h3>
+                                    </div>
+
+                                    {/* Hover Overlay with Description and Button */}
+                                    <div className='absolute inset-0 bg-gradient-to-br from-[#5044E5]/95 to-[#4d8cea]/95 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 text-white'>
+                                        <h3 className='text-base font-bold mb-2'>{work.title}</h3>
+                                        <p className='text-xs text-center mb-3 leading-relaxed line-clamp-3'>{work.description}</p>
+                                        <a
+                                            href={work.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className='px-4 py-2 bg-white text-[#5044E5] rounded-full text-sm font-medium hover:scale-105 transition-transform duration-200 shadow-lg'
+                                        >
+                                            View Live Project
+                                        </a>
+                                    </div>
                                 </div>
                             </motion.div>
                         ))
