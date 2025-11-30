@@ -51,7 +51,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className='flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 fixed top-0 left-0 right-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-transparent'>
+        className='flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 fixed top-0 left-0 right-0 z-20 backdrop-blur-sm font-medium bg-white/50 dark:bg-transparent will-change-transform'>
 
         <img
           src={theme === 'dark' ? assets.logo_dark || 'https://via.placeholder.com/150' : assets.logo}
@@ -87,7 +87,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
       {/* Popup Container */}
       {popupOpen && (
         <div
-          className='fixed inset-0 flex items-center justify-center z-30 bg-black/40 backdrop-blur-md'
+          className='fixed inset-0 flex items-center justify-center z-30 bg-black/40 backdrop-blur-sm'
           onClick={() => setPopupOpen(false)} // Close popup when clicking outside
         >
           <div

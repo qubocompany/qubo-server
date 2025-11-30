@@ -38,31 +38,37 @@ const App = () => {
   }, [])
 
   useEffect(() => {
+    // Only initialize cursor tracking on desktop
+    if (window.innerWidth < 1024) return
+
     const handleMouseMove = (e) => {
       mouse.current.x = e.clientX
       mouse.current.y = e.clientY
     }
 
-    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mousemove', handleMouseMove, { passive: true })
+
+    let animationFrameId
 
     const animate = () => {
-      // Only animate cursor on desktop
-      if (window.innerWidth >= 1024) {
-        position.current.x += (mouse.current.x - position.current.x) * 0.1
-        position.current.y += (mouse.current.y - position.current.y) * 0.1
+      position.current.x += (mouse.current.x - position.current.x) * 0.1
+      position.current.y += (mouse.current.y - position.current.y) * 0.1
 
-        if (dotRef.current && outlineRef.current) {
-          dotRef.current.style.transform = `translate3d(${mouse.current.x - 6}px, ${mouse.current.y - 6}px, 0)`
-          outlineRef.current.style.transform = `translate3d(${position.current.x - 20}px, ${position.current.y - 20}px, 0)`
-        }
+      if (dotRef.current && outlineRef.current) {
+        dotRef.current.style.transform = `translate3d(${mouse.current.x - 6}px, ${mouse.current.y - 6}px, 0)`
+        outlineRef.current.style.transform = `translate3d(${position.current.x - 20}px, ${position.current.y - 20}px, 0)`
       }
-      requestAnimationFrame(animate)
+
+      animationFrameId = requestAnimationFrame(animate)
     }
 
     animate()
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove)
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId)
+      }
     }
 
   }, [])
@@ -72,7 +78,7 @@ const App = () => {
   }
 
   return (
-    <div className='dark:bg-black relative overflow-x-hidden min-h-screen'>
+    <div className='dark:bg-black relative min-h-screen'>
       <Toaster />
       <Navbar theme={theme} setTheme={setTheme} setShowProducts={setShowProducts} setShowContact={setShowContact} setShowToolSpace={setShowToolSpace} />
 

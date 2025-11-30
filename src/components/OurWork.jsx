@@ -59,23 +59,23 @@ const OurWork = () => {
         }
 
         .glassmorphism-popup {
-          background: rgba(255, 255, 255, 0.85);
-          backdrop-filter: blur(20px) saturate(180%);
-          -webkit-backdrop-filter: blur(20px) saturate(180%);
+          background: rgba(255, 255, 255, 0.9);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
           border: 1px solid rgba(255, 255, 255, 0.5);
           box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
         }
 
         .dark .glassmorphism-popup {
-          background: rgba(30, 30, 40, 0.85);
+          background: rgba(30, 30, 40, 0.9);
           border: 1px solid rgba(255, 255, 255, 0.1);
           box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
 
         .glassmorphism-card {
           background: rgba(255, 255, 255, 0.15);
-          backdrop-filter: blur(30px) saturate(180%);
-          -webkit-backdrop-filter: blur(30px) saturate(180%);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
           border: 1.5px solid rgba(255, 255, 255, 0.3);
           box-shadow: 0 12px 40px 0 rgba(80, 68, 229, 0.2),
                       inset 0 0 0 1px rgba(255, 255, 255, 0.1);

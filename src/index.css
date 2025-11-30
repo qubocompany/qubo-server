@@ -29,19 +29,37 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Removed smooth scroll for better performance - using JS smooth scroll instead */
 }
 
-html,
-body {
-  overflow-x: hidden;
-  max-width: 100%;
+html {
   width: 100%;
+  /* Ensure html doesn't force a second scrollbar */
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  /* Handle horizontal overflow at body level only */
+  overflow-x: hidden;
+  position: relative;
 }
 
 body {
   margin: 0;
   padding: 0;
+  /* Performance optimizations */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Performance optimizations for animated elements */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
 }
 
 @theme {
