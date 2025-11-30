@@ -155,11 +155,11 @@ const OurWork = () => {
                                 <div className="project-card-glow"></div>
 
                                 {/* Mobile & Tablet View - Minimalist (No Glass Box) */}
-                                <div className='lg:hidden rounded-xl p-2 h-full flex flex-col items-center justify-center text-center gap-2 min-h-[140px] relative z-10'>
+                                <div className='lg:hidden rounded-xl p-4 h-full flex flex-col items-center justify-center text-center gap-4 min-h-[200px] relative z-10'>
                                     {/* Clickable Logo - Opens Popup */}
                                     <div
                                         onClick={() => setSelectedProject(work)}
-                                        className='project-logo w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shadow-lg bg-white/90 dark:bg-gray-800/90 p-2 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform'
+                                        className='project-logo w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shadow-lg bg-white/90 dark:bg-gray-800/90 p-4 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform'
                                     >
                                         <img
                                             src={work.image}
@@ -169,7 +169,7 @@ const OurWork = () => {
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className='text-xs sm:text-sm font-bold text-gray-800 dark:text-white leading-tight'>
+                                    <h3 className='text-base sm:text-lg font-bold text-gray-800 dark:text-white leading-tight'>
                                         {work.title}
                                     </h3>
                                 </div>
@@ -223,14 +223,15 @@ const OurWork = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
+                        transition={{ duration: 0.15 }}
                         className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
                         onClick={() => setSelectedProject(null)}
                     >
                         <motion.div
-                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-                            animate={{ scale: 1, opacity: 1, y: 0 }}
-                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                            transition={{ type: "spring", duration: 0.5 }}
+                            initial={{ scale: 0.95, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.95, opacity: 0 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 30 }}
                             className="glassmorphism-popup w-full max-w-sm p-6 rounded-3xl flex flex-col items-center text-center relative"
                             onClick={(e) => e.stopPropagation()}
                         >
