@@ -58,7 +58,7 @@ const Footer = ({ theme }) => {
         transition={{ duration: 0.5, delay: 0.4 }}
         viewport={{ once: true }}
         className='pb-6 text-sm text-gray-500 flex justify-center sm:justify-between gap-4 flex-wrap'>
-        <p>Copyright 2025 © Qubo.company - All Right Reserved.</p>
+        <p>Copyright 2025 © The Qubo.company - All Right Reserved.</p>
         <div className='flex items-center justify-between gap-4'>
           <img src={assets.facebook_icon} alt="" />
           <img src={assets.twitter_icon} alt="" />
