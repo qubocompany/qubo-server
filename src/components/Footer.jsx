@@ -77,7 +77,7 @@ const Footer = ({ theme }) => {
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className='hover:opacity-70 transition-opacity'>
               <img src={assets.twitter_icon} alt="Twitter" className='w-5 h-5' />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className='hover:opacity-70 transition-opacity'>
+            <a href="https://www.instagram.com/qubo_company" target="_blank" rel="noopener noreferrer" className='hover:opacity-70 transition-opacity'>
               <img src={assets.instagram_icon} alt="Instagram" className='w-5 h-5' />
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className='hover:opacity-70 transition-opacity'>

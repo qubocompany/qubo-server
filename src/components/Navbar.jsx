@@ -68,8 +68,8 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
           <img src={assets.close_icon} alt="" className='w-5 absolute right-4 top-4 sm:hidden' onClick={() => setSidebarOpen(false)} />
 
           <a onClick={() => handleNavigation('hero')} href="#" className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'home' ? 'border-b-2 border-primary' : ''}`}>Home</a>
-          <a onClick={() => handleNavigation('products')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'products' ? 'border-b-2 border-primary' : ''}`}>Products</a>
           <a onClick={() => handleNavigation('services')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'services' ? 'border-b-2 border-primary' : ''}`}>Services</a>
+          <a onClick={() => handleNavigation('products')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'products' ? 'border-b-2 border-primary' : ''}`}>Products</a>
           <a onClick={() => handleNavigation('tool-space')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'tool-space' ? 'border-b-2 border-primary' : ''}`}>Tool Space</a>
           <a onClick={() => handleNavigation('contact-us')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'contact-us' ? 'border-b-2 border-primary' : ''}`}>Contact us</a>
         </div>

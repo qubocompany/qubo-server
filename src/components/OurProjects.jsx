@@ -95,32 +95,61 @@ const OurProjects = () => {
                 </div>
 
                 {/* Projects Grid */}
-                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl min-h-[400px]'>
+                <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-1.5 sm:gap-4 lg:gap-6 w-full max-w-6xl'>
                     <AnimatePresence mode='wait'>
                         {filteredProjects.length > 0 ? (
                             filteredProjects.map((project, index) => (
                                 <motion.div
                                     key={project.title}
                                     layout
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.3 }}
-                                    className='group relative rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300'
-                                    onClick={() => setSelectedProject(project)}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    className='relative group overflow-hidden rounded-xl cursor-pointer'
                                 >
-                                    <div className='w-full h-64 overflow-hidden bg-white dark:bg-gray-800'>
-                                        <img
-                                            src={project.image}
-                                            alt={project.title}
-                                            className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-110'
-                                        />
+
+                                    {/* Glow Effect for Mobile/Tablet */}
+                                    <div className="project-card-glow"></div>
+
+                                    {/* Mobile & Tablet View - Minimalist (No Glass Box) */}
+                                    <div className='lg:hidden rounded-xl p-4 h-full flex flex-col items-center justify-center text-center gap-4 min-h-[200px] relative z-10'>
+                                        {/* Clickable Logo - Opens Popup */}
+                                        <div
+                                            onClick={() => setSelectedProject(project)}
+                                            className='project-logo w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shadow-lg bg-white/90 dark:bg-gray-800/90 p-4 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform'
+                                        >
+                                            <img
+                                                src={project.image}
+                                                className='w-full h-full object-contain'
+                                                alt={project.title}
+                                            />
+                                        </div>
+
+                                        {/* Title */}
+                                        <h3 className='text-base sm:text-lg font-bold text-gray-800 dark:text-white leading-tight'>
+                                            {project.title}
+                                        </h3>
                                     </div>
 
-                                    {/* Overlay */}
-                                    <div className='absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6'>
-                                        <h3 className='text-xl font-bold text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300'>{project.title}</h3>
-                                        <p className='text-sm text-gray-200 line-clamp-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75'>{project.description}</p>
+                                    {/* Desktop View - Rectangular Box Concept */}
+                                    <div className='hidden lg:flex flex-col items-center justify-center text-center gap-4 p-4 h-full min-h-[240px]'>
+                                        {/* Clickable Image Box - Opens Popup */}
+                                        <div
+                                            onClick={() => setSelectedProject(project)}
+                                            className='w-full h-40 rounded-2xl overflow-hidden shadow-lg bg-white/90 dark:bg-gray-800/90 p-2 cursor-pointer hover:scale-105 transition-transform duration-300'
+                                        >
+                                            <img
+                                                src={project.image}
+                                                className='w-full h-full object-cover rounded-xl'
+                                                alt={project.title}
+                                            />
+                                        </div>
+
+                                        {/* Title */}
+                                        <h3 className='text-lg font-bold text-gray-800 dark:text-white leading-tight'>
+                                            {project.title}
+                                        </h3>
                                     </div>
                                 </motion.div>
                             ))
@@ -199,7 +228,7 @@ const OurProjects = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </div>
+        </div >
     )
 }
 

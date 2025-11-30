@@ -6,15 +6,18 @@ const Hero = () => {
   return (
     <div id='hero' className='flex flex-col items-center gap-8 pt-32 pb-20 px-4 sm:px-12 lg:px-24 xl:px-40 text-center w-full overflow-hidden text-gray-700 dark:text-white'>
 
-      <motion.div
+      <motion.a
+        href="https://www.linkedin.com/in/the-qubo-company-66701a393"
+        target="_blank"
+        rel="noopener noreferrer"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.7 }}
         viewport={{ once: true }}
-        className='inline-flex items-center gap-2 border border-gray-300 p-1.5 pr-4 rounded-full mb-4'>
+        className='inline-flex items-center gap-2 border border-gray-300 p-1.5 pr-4 rounded-full mb-4 cursor-pointer hover:scale-105 transition-transform'>
         <img className='w-20' src={assets.group_profile} alt="" />
         <p className='text-xs font-medium'>Join our community</p>
-      </motion.div>
+      </motion.a>
 
       <motion.h1
         initial={{ opacity: 0, y: 40 }}

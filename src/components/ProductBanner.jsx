@@ -72,9 +72,9 @@ const ProductBanner = () => {
         >
           <div className='container mx-auto h-full px-6 sm:px-10 flex items-center'>
             <div className='grid md:grid-cols-2 gap-4 sm:gap-8 items-center w-full'>
-              
+
               {/* Left Content */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -105,14 +105,14 @@ const ProductBanner = () => {
               </motion.div>
 
               {/* Right Image */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className='relative h-full flex items-center justify-center'
               >
-                <img 
-                  src={banners[currentIndex].image} 
+                <img
+                  src={banners[currentIndex].image}
                   alt={banners[currentIndex].title}
                   className='w-full max-w-xs sm:max-w-md h-auto object-contain drop-shadow-2xl'
                 />
@@ -129,35 +129,17 @@ const ProductBanner = () => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2 rounded-full transition-all duration-200 ${
-              index === currentIndex 
-                ? 'bg-white w-8' 
+            className={`h-2 rounded-full transition-all duration-200 ${index === currentIndex
+                ? 'bg-white w-8'
                 : 'bg-white/50 hover:bg-white/75 w-2'
-            }`}
+              }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
 
       {/* Navigation Arrows */}
-      <button
-        onClick={() => setCurrentIndex((currentIndex - 1 + banners.length) % banners.length)}
-        className='absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-2 rounded-full transition-all z-10'
-        aria-label='Previous slide'
-      >
-        <svg className='w-4 h-4 sm:w-5 sm:h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-          <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 19l-7-7 7-7' />
-        </svg>
-      </button>
-      <button
-        onClick={() => setCurrentIndex((currentIndex + 1) % banners.length)}
-        className='absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white p-2 rounded-full transition-all z-10'
-        aria-label='Next slide'
-      >
-        <svg className='w-4 h-4 sm:w-5 sm:h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-          <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
-        </svg>
-      </button>
+
     </div>
   )
 }
