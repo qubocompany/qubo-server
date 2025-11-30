@@ -36,16 +36,16 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      mouse.current.x = e.clientX
-      mouse.current.y = e.clientY
-    }
+    // Only initialize custom cursor on desktop
+    if (window.innerWidth > 1024) {
+      const handleMouseMove = (e) => {
+        mouse.current.x = e.clientX
+        mouse.current.y = e.clientY
+      }
 
-    document.addEventListener('mousemove', handleMouseMove)
+      document.addEventListener('mousemove', handleMouseMove)
 
-    const animate = () => {
-      // Only animate cursor on desktop
-      if (window.innerWidth >= 1024) {
+      const animate = () => {
         position.current.x += (mouse.current.x - position.current.x) * 0.1
         position.current.y += (mouse.current.y - position.current.y) * 0.1
 
@@ -53,16 +53,15 @@ const App = () => {
           dotRef.current.style.transform = `translate3d(${mouse.current.x - 6}px, ${mouse.current.y - 6}px, 0)`
           outlineRef.current.style.transform = `translate3d(${position.current.x - 20}px, ${position.current.y - 20}px, 0)`
         }
+        requestAnimationFrame(animate)
       }
-      requestAnimationFrame(animate)
+
+      animate()
+
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMove)
+      }
     }
-
-    animate()
-
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove)
-    }
-
   }, [])
 
   if (loading) {
