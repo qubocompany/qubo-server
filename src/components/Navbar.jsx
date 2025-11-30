@@ -7,25 +7,30 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
 
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [popupOpen, setPopupOpen] = useState(false) // State for popup visibility
+  const [activePage, setActivePage] = useState('home') // Track active page
 
   const handleNavigation = (section) => {
     setSidebarOpen(false)
     if (section === 'products') {
+      setActivePage('products')
       setShowProducts(true)
       setShowContact(false)
       setShowToolSpace(false)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else if (section === 'contact-us') {
+      setActivePage('contact-us')
       setShowContact(true)
       setShowProducts(false)
       setShowToolSpace(false)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else if (section === 'tool-space') {
+      setActivePage('tool-space')
       setShowToolSpace(true)
       setShowProducts(false)
       setShowContact(false)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
+      setActivePage(section === 'hero' ? 'home' : section)
       setShowProducts(false)
       setShowContact(false)
       setShowToolSpace(false)
@@ -46,7 +51,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className='flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 fixed top-0 left-0 right-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/70'>
+        className='flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 fixed top-0 left-0 right-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-transparent'>
 
         <img
           src={theme === 'dark' ? assets.logo_dark || 'https://via.placeholder.com/150' : assets.logo}
@@ -54,15 +59,15 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
           alt='Logo'
         />
 
-        <div className={`text-gray-700 dark:text-white sm:text-sm ${!sidebarOpen ? 'max-sm:w-0 overflow-hidden' : 'max-sm:w-60 max-sm:pl-10'} max-sm:fixed top-0 bottom-0 right-0 max-sm:min-h-screen max-sm:h-full max-sm:flex-col max-sm:bg-primary max-sm:text-white max-sm:pt-20 flex sm:items-center gap-5 transition-all`}>
+        <div className={`text-gray-700 dark:text-white sm:text-sm ${!sidebarOpen ? 'max-sm:w-0 overflow-hidden' : 'max-sm:w-60 max-sm:pl-10'} max-sm:fixed top-0 bottom-0 right-0 max-sm:min-h-screen max-sm:h-full max-sm:flex-col max-sm:bg-primary max-sm:text-white max-sm:pt-20 flex sm:items-center gap-8 transition-all`}>
 
           <img src={assets.close_icon} alt="" className='w-5 absolute right-4 top-4 sm:hidden' onClick={() => setSidebarOpen(false)} />
 
-          <a onClick={() => handleNavigation('hero')} href="#" className='sm:hover:border-b'>Home</a>
-          <a onClick={() => handleNavigation('products')} className='sm:hover:border-b cursor-pointer'>Products</a>
-          <a onClick={() => handleNavigation('services')} className='sm:hover:border-b cursor-pointer'>Services</a>
-          <a onClick={() => handleNavigation('tool-space')} className='sm:hover:border-b cursor-pointer'>Tool Space</a>
-          <a onClick={() => handleNavigation('contact-us')} className='sm:hover:border-b cursor-pointer'>Contact us</a>
+          <a onClick={() => handleNavigation('hero')} href="#" className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'home' ? 'border-b-2 border-primary' : ''}`}>Home</a>
+          <a onClick={() => handleNavigation('products')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'products' ? 'border-b-2 border-primary' : ''}`}>Products</a>
+          <a onClick={() => handleNavigation('services')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'services' ? 'border-b-2 border-primary' : ''}`}>Services</a>
+          <a onClick={() => handleNavigation('tool-space')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'tool-space' ? 'border-b-2 border-primary' : ''}`}>Tool Space</a>
+          <a onClick={() => handleNavigation('contact-us')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'contact-us' ? 'border-b-2 border-primary' : ''}`}>Contact us</a>
         </div>
 
         <div className='flex items-center gap-2 sm:gap-4'>

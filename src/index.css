@@ -60,6 +60,30 @@ body {
   }
 }
 
+@keyframes gooey {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg) blur(0px);
+  }
+
+  25% {
+    background-position: 50% 50%;
+    filter: hue-rotate(10deg) blur(0.5px);
+  }
+
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(0deg) blur(1px);
+  }
+
+  75% {
+    background-position: 50% 50%;
+    filter: hue-rotate(-10deg) blur(0.5px);
+  }
+}
+
 @keyframes float {
 
   0%,
@@ -73,7 +97,11 @@ body {
 }
 
 .animate-shimmer {
-  animation: shimmer 3s linear infinite;
+  animation: gooey 4s ease-in-out infinite;
+}
+
+.animate-gooey {
+  animation: gooey 4s ease-in-out infinite;
 }
 
 .animate-float {
