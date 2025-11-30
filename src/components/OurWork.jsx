@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Title from './Title'
 import assets from '../assets/assets'
-import { motion } from 'motion/react'
+import { motion, AnimatePresence } from 'motion/react'
 
 const OurWork = () => {
+
+    const [selectedProject, setSelectedProject] = useState(null)
 
     const workData = [
         {
@@ -54,6 +56,20 @@ const OurWork = () => {
           100% {
             transform: translateX(100%);
           }
+        }
+
+        .glassmorphism-popup {
+          background: rgba(255, 255, 255, 0.85);
+          backdrop-filter: blur(20px) saturate(180%);
+          -webkit-backdrop-filter: blur(20px) saturate(180%);
+          border: 1px solid rgba(255, 255, 255, 0.5);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark .glassmorphism-popup {
+          background: rgba(30, 30, 40, 0.85);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
 
         .glassmorphism-card {
@@ -124,7 +140,7 @@ const OurWork = () => {
                 id='our-work' className='flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-700 dark:text-white'>
                 <Title title='Our Projects' desc='From strategy to execution, we craft digital solutions that move your business forward.' />
 
-                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-3 w-full max-w-6xl'>
+                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-1.5 w-full max-w-6xl'>
                     {
                         workData.map((work, index) => (
                             <motion.div
@@ -138,24 +154,22 @@ const OurWork = () => {
                                 {/* Glow Effect for Mobile */}
                                 <div className="project-card-glow"></div>
 
-                                {/* Mobile View - Glassmorphism Card */}
-                                <div className='md:hidden glassmorphism-card rounded-2xl p-6 h-full flex flex-col items-center justify-center text-center gap-4 min-h-[200px] relative z-10'>
-                                    {/* Clickable Logo */}
-                                    <a
-                                        href={work.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className='project-logo w-20 h-20 rounded-xl overflow-hidden shadow-xl bg-white/90 dark:bg-gray-800/90 p-2.5 flex items-center justify-center'
+                                {/* Mobile View - Minimalist (No Glass Box) */}
+                                <div className='md:hidden rounded-xl p-2 h-full flex flex-col items-center justify-center text-center gap-2 min-h-[140px] relative z-10'>
+                                    {/* Clickable Logo - Opens Popup */}
+                                    <div
+                                        onClick={() => setSelectedProject(work)}
+                                        className='project-logo w-16 h-16 rounded-xl overflow-hidden shadow-lg bg-white/90 dark:bg-gray-800/90 p-2 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform'
                                     >
                                         <img
                                             src={work.image}
                                             className='w-full h-full object-contain'
                                             alt={work.title}
                                         />
-                                    </a>
+                                    </div>
 
                                     {/* Title */}
-                                    <h3 className='text-[15px] font-bold text-gray-800 dark:text-white leading-tight'>
+                                    <h3 className='text-xs font-bold text-gray-800 dark:text-white leading-tight'>
                                         {work.title}
                                     </h3>
                                 </div>
@@ -201,6 +215,68 @@ const OurWork = () => {
                 </motion.button>
 
             </motion.div>
+
+            {/* Frosty Glassy Popup Modal */}
+            <AnimatePresence>
+                {selectedProject && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+                        onClick={() => setSelectedProject(null)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                            transition={{ type: "spring", duration: 0.5 }}
+                            className="glassmorphism-popup w-full max-w-sm p-6 rounded-3xl flex flex-col items-center text-center relative"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setSelectedProject(null)}
+                                className="absolute top-4 right-4 p-2 rounded-full bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20 transition-colors"
+                            >
+                                <img src={assets.close_icon} alt="Close" className="w-4 h-4 dark:invert" />
+                            </button>
+
+                            {/* Project Image */}
+                            <div className="w-full h-48 rounded-2xl overflow-hidden mb-6 shadow-lg">
+                                <img
+                                    src={selectedProject.image}
+                                    alt={selectedProject.title}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+
+                            {/* Title */}
+                            <h3 className="text-2xl font-bold mb-3 text-gray-800 dark:text-white">
+                                {selectedProject.title}
+                            </h3>
+
+                            {/* Description */}
+                            <p className="text-sm text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                                {selectedProject.description}
+                            </p>
+
+                            {/* View Live Project Button */}
+                            <a
+                                href={selectedProject.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
+                            >
+                                <span>View Live Project</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                </svg>
+                            </a>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     )
 }
