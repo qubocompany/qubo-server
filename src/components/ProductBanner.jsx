@@ -60,7 +60,7 @@ const ProductBanner = () => {
   }
 
   return (
-    <div className='relative w-full h-[320px] sm:h-[380px] overflow-hidden rounded-xl mb-12'>
+    <div className='relative w-full h-[500px] sm:h-[380px] overflow-hidden rounded-xl mb-12'>
       <AnimatePresence mode='wait'>
         <motion.div
           key={currentIndex}
@@ -70,15 +70,15 @@ const ProductBanner = () => {
           transition={{ duration: 0.4, ease: 'easeInOut' }} // Shortened duration and added easing
           className={`absolute inset-0 bg-gradient-to-r ${banners[currentIndex].bgGradient}`}
         >
-          <div className='container mx-auto h-full px-6 sm:px-10 flex items-center'>
-            <div className='grid md:grid-cols-2 gap-4 sm:gap-8 items-center w-full'>
+          <div className='container mx-auto h-full px-6 sm:px-10 flex items-center justify-center py-8 sm:py-0'>
+            <div className='flex flex-col-reverse md:grid md:grid-cols-2 gap-4 sm:gap-8 items-center w-full h-full sm:h-auto justify-center'>
 
               {/* Left Content */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className='text-white space-y-3 sm:space-y-4'
+                className='text-white space-y-3 sm:space-y-4 text-center md:text-left'
               >
                 {banners[currentIndex].discount && (
                   <span className='inline-block bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-full'>
@@ -94,8 +94,8 @@ const ProductBanner = () => {
                 <p className='text-sm opacity-80 hidden sm:block'>
                   {banners[currentIndex].description}
                 </p>
-                <div className='flex items-center gap-4 sm:gap-6 pt-2'>
-                  <span className='text-3xl sm:text-4xl font-bold'>
+                <div className='flex items-center justify-center md:justify-start gap-4 sm:gap-6 pt-2'>
+                  <span className='text-2xl sm:text-4xl font-bold'>
                     {banners[currentIndex].price}
                   </span>
                   <button className='bg-white text-gray-900 px-5 sm:px-8 py-2.5 sm:py-3 rounded-full text-sm font-bold hover:scale-105 transition-transform'>
@@ -109,12 +109,12 @@ const ProductBanner = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className='relative h-full flex items-center justify-center'
+                className='relative h-48 sm:h-full flex items-center justify-center w-full'
               >
                 <img
                   src={banners[currentIndex].image}
                   alt={banners[currentIndex].title}
-                  className='w-full max-w-xs sm:max-w-md h-auto object-contain drop-shadow-2xl'
+                  className='w-auto h-full max-h-full object-contain drop-shadow-2xl'
                 />
               </motion.div>
 
@@ -130,8 +130,8 @@ const ProductBanner = () => {
             key={index}
             onClick={() => goToSlide(index)}
             className={`h-2 rounded-full transition-all duration-200 ${index === currentIndex
-                ? 'bg-white w-8'
-                : 'bg-white/50 hover:bg-white/75 w-2'
+              ? 'bg-white w-8'
+              : 'bg-white/50 hover:bg-white/75 w-2'
               }`}
             aria-label={`Go to slide ${index + 1}`}
           />
