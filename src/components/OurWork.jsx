@@ -140,7 +140,7 @@ const OurWork = () => {
                 id='our-work' className='flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-700 dark:text-white'>
                 <Title title='Our Projects' desc='From strategy to execution, we craft digital solutions that move your business forward.' />
 
-                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-1.5 w-full max-w-6xl'>
+                <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-1.5 sm:gap-4 lg:gap-6 w-full max-w-6xl'>
                     {
                         workData.map((work, index) => (
                             <motion.div
@@ -151,15 +151,15 @@ const OurWork = () => {
                                 key={index}
                                 className='relative group overflow-hidden rounded-xl cursor-pointer'>
 
-                                {/* Glow Effect for Mobile */}
+                                {/* Glow Effect for Mobile/Tablet */}
                                 <div className="project-card-glow"></div>
 
-                                {/* Mobile View - Minimalist (No Glass Box) */}
-                                <div className='md:hidden rounded-xl p-2 h-full flex flex-col items-center justify-center text-center gap-2 min-h-[140px] relative z-10'>
+                                {/* Mobile & Tablet View - Minimalist (No Glass Box) */}
+                                <div className='lg:hidden rounded-xl p-2 h-full flex flex-col items-center justify-center text-center gap-2 min-h-[140px] relative z-10'>
                                     {/* Clickable Logo - Opens Popup */}
                                     <div
                                         onClick={() => setSelectedProject(work)}
-                                        className='project-logo w-16 h-16 rounded-xl overflow-hidden shadow-lg bg-white/90 dark:bg-gray-800/90 p-2 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform'
+                                        className='project-logo w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shadow-lg bg-white/90 dark:bg-gray-800/90 p-2 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform'
                                     >
                                         <img
                                             src={work.image}
@@ -169,13 +169,13 @@ const OurWork = () => {
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className='text-xs font-bold text-gray-800 dark:text-white leading-tight'>
+                                    <h3 className='text-xs sm:text-sm font-bold text-gray-800 dark:text-white leading-tight'>
                                         {work.title}
                                     </h3>
                                 </div>
 
                                 {/* Desktop View - Image with Hover Overlay */}
-                                <div className='hidden md:block'>
+                                <div className='hidden lg:block'>
                                     {/* Project Image */}
                                     <img src={work.image} className='w-full h-28 object-cover' alt={work.title} />
 
