@@ -3,7 +3,7 @@ import assets from '../assets/assets'
 import ThemeToggleBtn from './ThemeToggleBtn'
 import { motion } from "motion/react"
 
-const Navbar = ({ theme, setTheme, setShowProducts, setShowContact }) => {
+const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolSpace }) => {
 
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [popupOpen, setPopupOpen] = useState(false) // State for popup visibility
@@ -13,14 +13,22 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact }) => {
     if (section === 'products') {
       setShowProducts(true)
       setShowContact(false)
+      setShowToolSpace(false)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else if (section === 'contact-us') {
       setShowContact(true)
       setShowProducts(false)
+      setShowToolSpace(false)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else if (section === 'tool-space') {
+      setShowToolSpace(true)
+      setShowProducts(false)
+      setShowContact(false)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
       setShowProducts(false)
       setShowContact(false)
+      setShowToolSpace(false)
       setTimeout(() => {
         const element = document.getElementById(section)
         if (element) {
@@ -53,7 +61,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact }) => {
           <a onClick={() => handleNavigation('hero')} href="#" className='sm:hover:border-b'>Home</a>
           <a onClick={() => handleNavigation('products')} className='sm:hover:border-b cursor-pointer'>Products</a>
           <a onClick={() => handleNavigation('services')} className='sm:hover:border-b cursor-pointer'>Services</a>
-          <a onClick={() => handleNavigation('our-work')} className='sm:hover:border-b cursor-pointer'>Tool Space</a>
+          <a onClick={() => handleNavigation('tool-space')} className='sm:hover:border-b cursor-pointer'>Tool Space</a>
           <a onClick={() => handleNavigation('contact-us')} className='sm:hover:border-b cursor-pointer'>Contact us</a>
         </div>
 

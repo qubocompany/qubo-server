@@ -10,6 +10,7 @@ import { Toaster } from 'react-hot-toast'
 import Footer from './components/Footer'
 import Loader from './components/Loader'
 import Products from './components/Products'
+import ToolSpace from './components/ToolSpace'
 import { motion } from 'motion/react'
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
   const [loading, setLoading] = useState(true)
   const [showProducts, setShowProducts] = useState(false)
   const [showContact, setShowContact] = useState(false)
+  const [showToolSpace, setShowToolSpace] = useState(false)
 
   const dotRef = useRef(null)
   const outlineRef = useRef(null)
@@ -72,12 +74,14 @@ const App = () => {
   return (
     <div className='dark:bg-black relative overflow-x-hidden min-h-screen'>
       <Toaster />
-      <Navbar theme={theme} setTheme={setTheme} setShowProducts={setShowProducts} setShowContact={setShowContact} />
+      <Navbar theme={theme} setTheme={setTheme} setShowProducts={setShowProducts} setShowContact={setShowContact} setShowToolSpace={setShowToolSpace} />
 
       {showProducts ? (
         <Products />
       ) : showContact ? (
         <ContactUs isPage={true} />
+      ) : showToolSpace ? (
+        <ToolSpace />
       ) : (
         <>
           <Hero />
