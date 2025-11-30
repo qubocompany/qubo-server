@@ -174,29 +174,24 @@ const OurWork = () => {
                                     </h3>
                                 </div>
 
-                                {/* Desktop View - Image with Hover Overlay */}
-                                <div className='hidden lg:block'>
-                                    {/* Project Image */}
-                                    <img src={work.image} className='w-full h-28 object-cover' alt={work.title} />
-
-                                    {/* Project Title - Always Visible */}
-                                    <div className='absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3'>
-                                        <h3 className='text-white text-sm font-semibold'>{work.title}</h3>
+                                {/* Desktop View - Rectangular Box Concept */}
+                                <div className='hidden lg:flex flex-col items-center justify-center text-center gap-4 p-4 h-full min-h-[240px]'>
+                                    {/* Clickable Image Box - Opens Popup */}
+                                    <div
+                                        onClick={() => setSelectedProject(work)}
+                                        className='w-full h-40 rounded-2xl overflow-hidden shadow-lg bg-white/90 dark:bg-gray-800/90 p-2 cursor-pointer hover:scale-105 transition-transform duration-300'
+                                    >
+                                        <img
+                                            src={work.image}
+                                            className='w-full h-full object-cover rounded-xl'
+                                            alt={work.title}
+                                        />
                                     </div>
 
-                                    {/* Hover Overlay with Description and Button */}
-                                    <div className='absolute inset-0 bg-gradient-to-br from-[#5044E5]/95 to-[#4d8cea]/95 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-4 text-white'>
-                                        <h3 className='text-base font-bold mb-2'>{work.title}</h3>
-                                        <p className='text-xs text-center mb-3 leading-relaxed line-clamp-3'>{work.description}</p>
-                                        <a
-                                            href={work.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className='px-4 py-2 bg-white text-[#5044E5] rounded-full text-sm font-medium hover:scale-105 transition-transform duration-200 shadow-lg'
-                                        >
-                                            View Live Project
-                                        </a>
-                                    </div>
+                                    {/* Title */}
+                                    <h3 className='text-lg font-bold text-gray-800 dark:text-white leading-tight'>
+                                        {work.title}
+                                    </h3>
                                 </div>
                             </motion.div>
                         ))
