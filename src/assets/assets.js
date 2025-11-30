@@ -14,9 +14,12 @@ import marketing_icon from './marketing_icon.svg'
 import social_icon from './social_icon.svg'
 import menu_icon from './menu_icon.svg'
 import close_icon from './close_icon.svg'
-import work_mobile_app from './work_mobile_app.png'
+import work_mobile_app from './work_mobile_app.jpg'
 import work_fitness_app from './work_fitness_app.png'
-import work_dashboard_management from './work_dashboard_management.png'
+import work_fiberflow from './fiberflow logo.png'
+import work_fork_knife from './f&k logo.jpg'
+import work_ride_infinity from './ride infinity.jpeg'
+import work_agrozy from './agrozyfoods logo.png'
 import email_icon from './email_icon.svg'
 import person_icon from './person_icon.svg'
 import facebook_icon from './facebook_icon.svg'
@@ -29,7 +32,7 @@ import google_logo from './google_logo.svg'
 import menu_icon_dark from './menu_icon_dark.svg'
 import sun_icon from './sun_icon.svg'
 import moon_icon from './moon_icon.svg'
-import loader_logo from './loader_logo.png' // Add your loader logo image here
+import loader_logo from './loader_logo.png'
 
 export const company_logos = [
   microsoft_logo,
@@ -55,7 +58,10 @@ const assets = {
   close_icon,
   work_mobile_app,
   work_fitness_app,
-  work_dashboard_management,
+  work_fiberflow,
+  work_fork_knife,
+  work_ride_infinity,
+  work_agrozy,
   email_icon,
   person_icon,
   facebook_icon,
