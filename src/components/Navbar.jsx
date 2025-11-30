@@ -3,7 +3,7 @@ import assets from '../assets/assets'
 import ThemeToggleBtn from './ThemeToggleBtn'
 import { motion } from "motion/react"
 
-const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolSpace }) => {
+const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolSpace, setShowOurProjects }) => {
 
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [popupOpen, setPopupOpen] = useState(false) // State for popup visibility
@@ -16,24 +16,28 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
       setShowProducts(true)
       setShowContact(false)
       setShowToolSpace(false)
+      setShowOurProjects(false)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else if (section === 'contact-us') {
       setActivePage('contact-us')
       setShowContact(true)
       setShowProducts(false)
       setShowToolSpace(false)
+      setShowOurProjects(false)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else if (section === 'tool-space') {
       setActivePage('tool-space')
       setShowToolSpace(true)
       setShowProducts(false)
       setShowContact(false)
+      setShowOurProjects(false)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
       setActivePage(section === 'hero' ? 'home' : section)
       setShowProducts(false)
       setShowContact(false)
       setShowToolSpace(false)
+      setShowOurProjects(false)
       setTimeout(() => {
         const element = document.getElementById(section)
         if (element) {

@@ -13,6 +13,8 @@ import Products from './components/Products'
 import ToolSpace from './components/ToolSpace'
 import { motion } from 'motion/react'
 
+import OurProjects from './components/OurProjects'
+
 const App = () => {
 
   const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light')
@@ -20,6 +22,7 @@ const App = () => {
   const [showProducts, setShowProducts] = useState(false)
   const [showContact, setShowContact] = useState(false)
   const [showToolSpace, setShowToolSpace] = useState(false)
+  const [showOurProjects, setShowOurProjects] = useState(false)
 
   const dotRef = useRef(null)
   const outlineRef = useRef(null)
@@ -37,6 +40,7 @@ const App = () => {
     return () => clearTimeout(timer)
   }, [])
 
+  /*
   useEffect(() => {
     // Only initialize cursor tracking on desktop
     if (window.innerWidth < 1024) return
@@ -72,6 +76,7 @@ const App = () => {
     }
 
   }, [])
+  */
 
   if (loading) {
     return <Loader theme={theme} />
@@ -80,7 +85,7 @@ const App = () => {
   return (
     <div className='dark:bg-black relative min-h-screen'>
       <Toaster />
-      <Navbar theme={theme} setTheme={setTheme} setShowProducts={setShowProducts} setShowContact={setShowContact} setShowToolSpace={setShowToolSpace} />
+      <Navbar theme={theme} setTheme={setTheme} setShowProducts={setShowProducts} setShowContact={setShowContact} setShowToolSpace={setShowToolSpace} setShowOurProjects={setShowOurProjects} />
 
       {showProducts ? (
         <Products />
@@ -88,12 +93,14 @@ const App = () => {
         <ContactUs isPage={true} />
       ) : showToolSpace ? (
         <ToolSpace />
+      ) : showOurProjects ? (
+        <OurProjects />
       ) : (
         <>
           <Hero />
           <TrustedBy />
           <Services />
-          <OurWork />
+          <OurWork setShowOurProjects={setShowOurProjects} />
           <Teams />
           <ContactUs />
         </>
@@ -102,11 +109,11 @@ const App = () => {
       <Footer theme={theme} />
 
       {/* Custom Cursor Ring */}
-      <div ref={outlineRef} className='hidden lg:block fixed top-0 left-0 h-10 w-10 rounded-full border border-primary pointer-events-none z-[9999]'
-        style={{ transition: 'transform 0.1s ease-out' }}></div>
+      {/* <div ref={outlineRef} className='hidden lg:block fixed top-0 left-0 h-10 w-10 rounded-full border border-primary pointer-events-none z-[9999]'
+        style={{ transition: 'transform 0.1s ease-out' }}></div> */}
 
       {/* Custom Cursor Dot */}
-      <div ref={dotRef} className='hidden lg:block fixed top-0 left-0 h-3 w-3 rounded-full bg-primary pointer-events-none z-[9999]'></div>
+      {/* <div ref={dotRef} className='hidden lg:block fixed top-0 left-0 h-3 w-3 rounded-full bg-primary pointer-events-none z-[9999]'></div> */}
 
       {/* WhatsApp Floating Button */}
       <motion.a

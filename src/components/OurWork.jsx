@@ -3,7 +3,7 @@ import Title from './Title'
 import assets from '../assets/assets'
 import { motion, AnimatePresence } from 'motion/react'
 
-const OurWork = () => {
+const OurWork = ({ setShowOurProjects }) => {
 
     const [selectedProject, setSelectedProject] = useState(null)
 
@@ -25,24 +25,6 @@ const OurWork = () => {
             description: 'We improvise the unique structure of the IT Infrastructure that made this company a partner for us.',
             image: assets.work_fitness_app,
             url: 'https://dot-decimals-1.onrender.com/'
-        },
-        {
-            title: 'Fork&Knife',
-            description: 'A cutting-edge solution that transforms how businesses interact with their customers digitally.',
-            image: assets.work_fork_knife,
-            url: 'https://forkandknife-1.vercel.app/'
-        },
-        {
-            title: 'Ride Infinity',
-            description: 'Innovative platform designed to streamline operations and enhance user experience.',
-            image: assets.work_ride_infinity,
-            url: 'https://ride-infinity.vercel.app/'
-        },
-        {
-            title: 'Agrozy Foods',
-            description: 'Revolutionary app that bridges the gap between technology and everyday life.',
-            image: assets.work_agrozy,
-            url: 'https://agrozy-foods.vercel.app/'
         },
     ]
 
@@ -204,6 +186,10 @@ const OurWork = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
                     viewport={{ once: true }}
+                    onClick={() => {
+                        setShowOurProjects(true)
+                        window.scrollTo({ top: 0, behavior: 'smooth' })
+                    }}
                     className='mt-6 px-8 py-3 rounded-full bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white font-medium hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'
                 >
                     See More

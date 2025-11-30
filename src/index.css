@@ -15,11 +15,11 @@
 }
 
 /* Hide cursor only on devices with a mouse/trackpad */
-@media (hover: hover) and (pointer: fine) {
+/* @media (hover: hover) and (pointer: fine) {
   * {
     cursor: none;
   }
-}
+} */
 
 /* Hide scrollbar for Chrome, Safari and Opera globally */
 *::-webkit-scrollbar {
