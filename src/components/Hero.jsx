@@ -24,7 +24,7 @@ const Hero = () => {
         className='text-4xl sm:text-5xl md:text-6xl xl:text-[84px] font-medium xl:leading-[95px] max-w-5xl mb-6'>
         Turning imagination into{' '}
         <motion.span
-          className='bg-clip-text text-transparent bg-[linear-gradient(to_right,#5044E5,#4d8cea,#8A84FF,#4d8cea,#5044E5)] bg-[length:200%_auto]'
+          className='bg-clip-text text-transparent bg-[linear-gradient(to_right,#5044E5,#4d8cea,#8A84FF,#4d8cea,#5044E5)] bg-[length:200%_auto] will-change-[background-position]'
           animate={{ backgroundPosition: "200% center" }}
           transition={{
             duration: 3,
