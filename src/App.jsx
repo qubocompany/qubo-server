@@ -83,7 +83,7 @@ const App = () => {
   }
 
   return (
-    <div className='dark:bg-black relative min-h-screen overflow-x-hidden'>
+    <div className='dark:bg-black relative min-h-screen'>
       <Toaster />
       <Navbar theme={theme} setTheme={setTheme} setShowProducts={setShowProducts} setShowContact={setShowContact} setShowToolSpace={setShowToolSpace} setShowOurProjects={setShowOurProjects} />
 
