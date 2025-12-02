@@ -121,7 +121,7 @@ const OurWork = ({ setShowOurProjects }) => {
                 id='our-work' className='flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-700 dark:text-white'>
                 <Title title='Our Projects' desc='From strategy to execution, we craft digital solutions that move your business forward.' />
 
-                <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-1.5 sm:gap-4 lg:gap-6 w-full max-w-6xl'>
+                <div className='flex flex-wrap justify-center gap-1.5 sm:gap-4 lg:gap-6 w-full max-w-6xl'>
                     {
                         workData.map((work, index) => (
                             <motion.div
@@ -130,7 +130,7 @@ const OurWork = ({ setShowOurProjects }) => {
                                 transition={{ duration: 0.4, delay: index * 0.05 }}
                                 viewport={{ once: true, margin: "-50px" }}
                                 key={index}
-                                className='relative group overflow-hidden rounded-xl cursor-pointer'>
+                                className='relative group overflow-hidden rounded-xl cursor-pointer w-[48%] sm:w-[31%] lg:w-[30%]'>
 
                                 {/* Glow Effect for Mobile/Tablet */}
                                 <div className="project-card-glow"></div>
