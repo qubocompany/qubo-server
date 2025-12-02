@@ -43,7 +43,7 @@ const Hero = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
 
-        className='relative mt-4 overflow-hidden'>
+        className='relative mt-4'>
         <img src={assets.hero_img} alt="" className='w-full max-w-6xl relative z-10' />
         <img src={assets.bgImage1} alt="" className='absolute -top-40 -right-40 sm:-top-100 sm:-right-70 -z-1 dark:hidden pointer-events-none' />
       </motion.div>
