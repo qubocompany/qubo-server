@@ -14,13 +14,6 @@
   /* IE and Edge */
 }
 
-/* Hide cursor only on devices with a mouse/trackpad */
-/* @media (hover: hover) and (pointer: fine) {
-  * {
-    cursor: none;
-  }
-} */
-
 /* Hide scrollbar for Chrome, Safari and Opera globally */
 *::-webkit-scrollbar {
   display: none !important;
@@ -29,23 +22,17 @@
 }
 
 html {
-  /* Removed smooth scroll for better performance - using JS smooth scroll instead */
-}
-
-html {
   width: 100%;
-  /* Ensure html doesn't force a second scrollbar */
+  height: 100%;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 body {
   width: 100%;
-  /* Handle horizontal overflow at body level only */
+  min-height: 100%;
   overflow-x: hidden;
-  position: relative;
-}
-
-body {
+  overflow-y: visible;
   margin: 0;
   padding: 0;
   /* Performance optimizations */
@@ -53,16 +40,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Performance optimizations for animated elements */
-.will-change-transform {
-  will-change: transform;
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-.will-change-opacity {
-  will-change: opacity;
-}
-
-@theme {
+/* Theme colors */
+:root {
   --color-primary: #5044E5;
   --color-primary-light: #4d8cea;
   --gradient-primary: linear-gradient(to right, #5044E5, #4d8cea);

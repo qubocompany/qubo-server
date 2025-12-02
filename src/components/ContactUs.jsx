@@ -31,8 +31,7 @@ const ContactUs = ({ isPage = false }) => {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
-      transition={{ staggerChildren: 0.2 }}
+      viewport={{ once: true, margin: "-100px" }}
       id='contact-us'
       className={`flex justify-center items-center px-4 sm:px-12 lg:px-24 xl:px-40 ${isPage ? 'min-h-screen pt-32 pb-20 bg-slate-50 dark:bg-black' : 'py-20'}`}>
 
@@ -99,7 +98,7 @@ const ContactUs = ({ isPage = false }) => {
           <motion.form
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             viewport={{ once: true }}
             onSubmit={onSubmit} className='space-y-6'>
 

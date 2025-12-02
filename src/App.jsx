@@ -83,7 +83,7 @@ const App = () => {
   }
 
   return (
-    <div className='dark:bg-black relative min-h-screen'>
+    <div className='dark:bg-black relative min-h-screen overflow-x-hidden'>
       <Toaster />
       <Navbar theme={theme} setTheme={setTheme} setShowProducts={setShowProducts} setShowContact={setShowContact} setShowToolSpace={setShowToolSpace} setShowOurProjects={setShowOurProjects} />
 
@@ -121,7 +121,7 @@ const App = () => {
         target="_blank"
         rel="noopener noreferrer"
         whileHover={{ scale: 1.1, opacity: 1 }}
-        className="fixed bottom-6 right-6 z-[999] bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 opacity-60 will-change-transform lg:animate-float"
+        className="fixed bottom-6 right-6 z-[999] bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 opacity-60 lg:animate-float"
         aria-label="Chat on WhatsApp"
       >
         <svg

@@ -117,8 +117,7 @@ const OurWork = ({ setShowOurProjects }) => {
             <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ staggerChildren: 0.2 }}
+                viewport={{ once: true, margin: "-100px" }}
                 id='our-work' className='flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-700 dark:text-white'>
                 <Title title='Our Projects' desc='From strategy to execution, we craft digital solutions that move your business forward.' />
 
@@ -126,10 +125,10 @@ const OurWork = ({ setShowOurProjects }) => {
                     {
                         workData.map((work, index) => (
                             <motion.div
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: index * 0.05 }}
+                                viewport={{ once: true, margin: "-50px" }}
                                 key={index}
                                 className='relative group overflow-hidden rounded-xl cursor-pointer'>
 

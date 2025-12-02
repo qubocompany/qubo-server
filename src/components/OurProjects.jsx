@@ -102,10 +102,10 @@ const OurProjects = () => {
                                 <motion.div
                                     key={project.title}
                                     layout
-                                    initial={{ opacity: 0, y: 30 }}
+                                    initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    transition={{ duration: 0.4, delay: index * 0.05 }}
                                     className='relative group overflow-hidden rounded-xl cursor-pointer'
                                 >
 

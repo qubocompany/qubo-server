@@ -11,19 +11,17 @@ const Hero = () => {
         target="_blank"
         rel="noopener noreferrer"
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
-        viewport={{ once: true }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
         className='inline-flex items-center gap-2 border border-gray-300 p-1.5 pr-4 rounded-full mb-4 cursor-pointer hover:scale-105 transition-transform'>
         <img className='w-20' src={assets.group_profile} alt="" />
         <p className='text-xs font-medium'>Join our community</p>
       </motion.a>
 
       <motion.h1
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        viewport={{ once: true }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
         className='text-4xl sm:text-5xl md:text-6xl xl:text-[84px] font-medium xl:leading-[95px] max-w-5xl mb-6'>
         Turning imagination into{' '}
         <span
@@ -35,21 +33,19 @@ const Hero = () => {
       </motion.h1>
 
       <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 1 }}
-        viewport={{ once: true }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.3 }}
         className='text-sm sm:text-lg font-medium text-gray-500 dark:text-white/75 max-w-4/5 sm:max-w-lg mb-8'>Creating meaningful connections and turning big ideas into interactive digital experiences.</motion.p>
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, delay: 2 }}
-        viewport={{ once: true }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
 
-        className='relative mt-4'>
-        <img src={assets.hero_img} alt="" className='w-full max-w-6xl' />
-        <img src={assets.bgImage1} alt="" className='absolute -top-40 -right-40 sm:-top-100 sm:-right-70 -z-1 dark:hidden' />
+        className='relative mt-4 overflow-hidden'>
+        <img src={assets.hero_img} alt="" className='w-full max-w-6xl relative z-10' />
+        <img src={assets.bgImage1} alt="" className='absolute -top-40 -right-40 sm:-top-100 sm:-right-70 -z-1 dark:hidden pointer-events-none' />
       </motion.div>
 
       {/* WhatsApp Floating Button */}
