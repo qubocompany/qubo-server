@@ -55,7 +55,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
-        className='flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 fixed top-0 left-0 right-0 z-20 backdrop-blur-sm font-medium bg-white/50 dark:bg-transparent'>
+        className='flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 fixed top-0 left-0 right-0 z-20 backdrop-blur-md font-medium bg-white/95 dark:bg-gray-900/90 shadow-sm'>
 
         <img
           src={theme === 'dark' ? assets.logo_dark || 'https://via.placeholder.com/150' : assets.logo}
@@ -95,20 +95,20 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
           onClick={() => setPopupOpen(false)} // Close popup when clicking outside
         >
           <div
-            className='bg-white/70 dark:bg-gray-900/70 p-10 rounded-lg shadow-lg w-96 sm:w-[550px] flex flex-col gap-8'
+            className='bg-gradient-to-r from-[#5044E5] to-[#4d8cea] p-10 rounded-lg shadow-2xl w-96 sm:w-[550px] flex flex-col gap-8 relative'
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
           >
             <button
-              className='absolute top-4 right-4 text-gray-700 dark:text-white'
+              className='absolute top-4 right-4 text-white hover:scale-110 transition-transform'
               onClick={() => setPopupOpen(false)}
             >
               ✖
             </button>
             <div className='grid grid-cols-2 gap-6'>
-              <button className='bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white px-6 py-8 rounded-lg text-center'>Call Us</button>
-              <button className='bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white px-6 py-8 rounded-lg text-center'>Connect with WhatsApp</button>
-              <button className='bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white px-6 py-8 rounded-lg text-center'>Check with Instagram</button>
-              <button className='bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white px-6 py-8 rounded-lg text-center'>Quote Us</button>
+              <button className='bg-white text-[#5044E5] font-semibold px-6 py-8 rounded-lg text-center hover:shadow-lg hover:scale-105 transition-all'>Call Us</button>
+              <button className='bg-white text-[#5044E5] font-semibold px-6 py-8 rounded-lg text-center hover:shadow-lg hover:scale-105 transition-all'>Connect with WhatsApp</button>
+              <button className='bg-white text-[#5044E5] font-semibold px-6 py-8 rounded-lg text-center hover:shadow-lg hover:scale-105 transition-all'>Check with Instagram</button>
+              <button className='bg-white text-[#5044E5] font-semibold px-6 py-8 rounded-lg text-center hover:shadow-lg hover:scale-105 transition-all'>Quote Us</button>
             </div>
           </div>
         </div>
