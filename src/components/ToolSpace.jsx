@@ -3,6 +3,13 @@ import assets from '../assets/assets'
 import { motion } from "motion/react"
 
 const ToolSpace = () => {
+    const handleToolClick = (e, tool) => {
+        if (!tool.url) return;
+        e.preventDefault();
+        const launchUrl = `${window.location.origin}/?launch=${encodeURIComponent(tool.url)}&name=${encodeURIComponent(tool.name)}`;
+        window.open(launchUrl, '_blank');
+    }
+
     return (
         <div className='min-h-screen flex flex-col items-center gap-8 pt-32 pb-20 px-4 sm:px-12 lg:px-24 xl:px-40 text-center w-full overflow-hidden text-gray-700 dark:text-white'>
 
@@ -97,8 +104,7 @@ const ToolSpace = () => {
                         <a
                             key={index}
                             href={tool.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            onClick={(e) => handleToolClick(e, tool)}
                             className='group relative overflow-hidden bg-white/50 dark:bg-gray-900/70 backdrop-blur-xl rounded-xl p-5 border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:scale-105 transition-all duration-300 block'>
                             {CardContent}
                         </a>

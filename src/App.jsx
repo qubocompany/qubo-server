@@ -12,13 +12,26 @@ import Loader from './components/Loader'
 import Products from './components/Products'
 import ToolSpace from './components/ToolSpace'
 import { motion } from 'motion/react'
+import Launcher from './components/Launcher'
+
 
 import OurProjects from './components/OurProjects'
 
 const App = () => {
 
+  const [launchConfig] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const launchUrl = params.get('launch');
+      if (launchUrl) {
+        return { url: launchUrl, name: params.get('name') };
+      }
+    }
+    return null;
+  })
+
   const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light')
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(!launchConfig)
   const [showProducts, setShowProducts] = useState(false)
   const [showContact, setShowContact] = useState(false)
   const [showToolSpace, setShowToolSpace] = useState(false)
@@ -77,6 +90,10 @@ const App = () => {
 
   }, [])
   */
+
+  if (launchConfig) {
+    return <Launcher targetUrl={launchConfig.url} toolName={launchConfig.name} />
+  }
 
   if (loading) {
     return <Loader theme={theme} />
