@@ -39,19 +39,21 @@ function App() {
             <video ref={videoRef} className="hidden" autoPlay playsInline muted />
 
             {/* AI Friend UI Overlay */}
-            <div className="absolute bottom-24 left-0 w-full text-center pointer-events-none z-50 px-4">
-                <h1 className="text-6xl md:text-8xl font-black text-white drop-shadow-[0_0_20px_rgba(0,255,255,0.8)] tracking-tight"
-                    style={{ textShadow: "0 0 30px cyan" }}
-                >
-                    {aiResponse ? aiResponse : "Hi Friend !"}
-                </h1>
-                <div className="mt-8 flex items-center justify-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-red-500 animate-ping shadow-[0_0_20px_red]" />
-                    <p className="text-sm text-cyan-200 uppercase tracking-[0.3em] font-bold bg-black/50 px-4 py-2 rounded-full border border-cyan-500/50 backdrop-blur-md">
-                        Listening...
-                    </p>
+            {aiResponse && (
+                <div className="absolute bottom-24 left-0 w-full text-center pointer-events-none z-50 px-4">
+                    <h1 className="text-6xl md:text-8xl font-black text-white drop-shadow-[0_0_20px_rgba(0,255,255,0.8)] tracking-tight"
+                        style={{ textShadow: "0 0 30px cyan" }}
+                    >
+                        {aiResponse}
+                    </h1>
+                    <div className="mt-8 flex items-center justify-center gap-3">
+                        <div className="w-3 h-3 rounded-full bg-red-500 animate-ping shadow-[0_0_20px_red]" />
+                        <p className="text-sm text-cyan-200 uppercase tracking-[0.3em] font-bold bg-black/50 px-4 py-2 rounded-full border border-cyan-500/50 backdrop-blur-md">
+                            Listening...
+                        </p>
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 }

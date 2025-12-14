@@ -9,6 +9,7 @@ export function useVoiceAssistant() {
         // Init Speech Synthesis
         const synth = window.speechSynthesis;
         let recognition = null;
+        let isRecognitionActive = false;
 
         // Safer check for SpeechRecognition
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -19,23 +20,66 @@ export function useVoiceAssistant() {
                 recognition.continuous = true;
                 recognition.interimResults = false;
                 recognition.lang = 'en-US';
+                recognition.maxAlternatives = 1;
 
-                recognition.onstart = () => setIsListening(true);
-                recognition.onend = () => setIsListening(false);
+                recognition.onstart = () => {
+                    setIsListening(true);
+                    isRecognitionActive = true;
+                    console.log('🎤 Voice recognition started');
+                };
+
+                recognition.onend = () => {
+                    setIsListening(false);
+                    isRecognitionActive = false;
+                    console.log('🎤 Voice recognition ended');
+
+                    // Auto-restart to keep listening
+                    setTimeout(() => {
+                        if (recognition && !isRecognitionActive) {
+                            try {
+                                recognition.start();
+                            } catch (e) {
+                                console.log('Voice restart failed:', e.message);
+                            }
+                        }
+                    }, 1000);
+                };
+
+                recognition.onerror = (event) => {
+                    console.warn('Voice recognition error:', event.error);
+                    if (event.error === 'no-speech') {
+                        console.log('No speech detected, continuing to listen...');
+                    }
+                };
 
                 recognition.onresult = (event) => {
                     if (event.results && event.results.length > 0) {
                         const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+                        console.log('🎯 Heard:', transcript);
                         setSpokenText(transcript);
                         handleCommand(transcript);
                     }
                 };
 
-                // Try starting, might fail without user interaction
-                // We wrap in timeout to delay it slightly
-                setTimeout(() => {
-                    try { recognition.start(); } catch (e) { console.log('Auto-start voice blocked'); }
-                }, 1000);
+                // Start recognition on user interaction
+                const startVoice = () => {
+                    if (!isRecognitionActive) {
+                        try {
+                            recognition.start();
+                        } catch (e) {
+                            console.log('Voice start blocked, waiting for interaction');
+                        }
+                    }
+                };
+
+                // Try auto-start after delay
+                setTimeout(startVoice, 1500);
+
+                // Also trigger on any user interaction
+                const userInteractionEvents = ['click', 'touchstart', 'keydown'];
+                userInteractionEvents.forEach(event => {
+                    document.addEventListener(event, startVoice, { once: true });
+                });
 
             } catch (err) {
                 console.warn("Voice Assistant Init Failed:", err);
@@ -46,21 +90,30 @@ export function useVoiceAssistant() {
 
         // Handlers
         const handleCommand = (text) => {
-            console.log("Heard:", text);
             let response = "";
 
-            if (text.includes("hello") || text.includes("hi")) {
+            if (text.includes("hello") || text.includes("hi") || text.includes("hey")) {
                 response = "Hello there! How can I help you today?";
             } else if (text.includes("friend")) {
                 response = "I am your best digital friend forever.";
             } else if (text.includes("cool")) {
                 response = "I verify that this is indeed very cool.";
-            } else if (text.includes("color")) {
+            } else if (text.includes("color") || text.includes("colour")) {
                 response = "Changing colors for you!";
+            } else if (text.includes("how are you")) {
+                response = "I'm doing great! Thanks for asking.";
+            } else if (text.includes("what is your name") || text.includes("who are you")) {
+                response = "I am Qubo AI, your intelligent assistant.";
+            } else if (text.includes("help")) {
+                response = "I'm here to help! Just speak naturally to me.";
+            } else if (text.includes("thank")) {
+                response = "You're very welcome!";
             } else {
                 const phrases = [
-                    "I am still in development...",
-                    "I am listening."
+                    "I heard you! I'm still learning that command.",
+                    "Interesting! Tell me more.",
+                    "I'm listening and learning.",
+                    "Got it! What else can I do for you?"
                 ];
                 response = phrases[Math.floor(Math.random() * phrases.length)];
             }
@@ -75,8 +128,9 @@ export function useVoiceAssistant() {
 
             try {
                 const utterance = new SpeechSynthesisUtterance(text);
-                utterance.rate = 1.0;
-                utterance.pitch = 0.9; // Deeper pitch for male voice
+                utterance.rate = 0.95;
+                utterance.pitch = 0.9;
+                utterance.volume = 1.0;
 
                 const voices = synth.getVoices();
                 // Prioritize Male voices
@@ -89,11 +143,13 @@ export function useVoiceAssistant() {
 
                 if (maleVoice) {
                     utterance.voice = maleVoice;
-                } else {
-                    // Fallback to first available if no specific male voice found,
-                    // attempting to avoid high pitched default if possible
+                } else if (voices.length > 0) {
                     utterance.voice = voices[0];
                 }
+
+                utterance.onend = () => {
+                    console.log('✅ Speech completed');
+                };
 
                 synth.speak(utterance);
             } catch (e) {
@@ -103,6 +159,7 @@ export function useVoiceAssistant() {
 
         return () => {
             if (recognition) {
+                isRecognitionActive = false;
                 try { recognition.stop(); } catch (e) { }
             }
             if (synth) synth.cancel();
