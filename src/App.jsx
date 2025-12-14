@@ -16,6 +16,8 @@ import Launcher from './components/Launcher'
 
 
 import OurProjects from './components/OurProjects'
+import QuboAIPage from './components/QuboAI/QuboAIPage'
+
 
 const App = () => {
 
@@ -36,6 +38,8 @@ const App = () => {
   const [showContact, setShowContact] = useState(false)
   const [showToolSpace, setShowToolSpace] = useState(false)
   const [showOurProjects, setShowOurProjects] = useState(false)
+  const [showQuboAI, setShowQuboAI] = useState(false)
+
 
   const dotRef = useRef(null)
   const outlineRef = useRef(null)
@@ -102,7 +106,8 @@ const App = () => {
   return (
     <div className='dark:bg-black relative min-h-screen'>
       <Toaster />
-      <Navbar theme={theme} setTheme={setTheme} setShowProducts={setShowProducts} setShowContact={setShowContact} setShowToolSpace={setShowToolSpace} setShowOurProjects={setShowOurProjects} />
+      <Navbar theme={showQuboAI ? 'dark' : theme} setTheme={setTheme} setShowProducts={setShowProducts} setShowContact={setShowContact} setShowToolSpace={setShowToolSpace} setShowOurProjects={setShowOurProjects} setShowQuboAI={setShowQuboAI} showQuboAI={showQuboAI} />
+
 
       {showProducts ? (
         <Products />
@@ -112,7 +117,10 @@ const App = () => {
         <ToolSpace />
       ) : showOurProjects ? (
         <OurProjects />
+      ) : showQuboAI ? (
+        <QuboAIPage />
       ) : (
+
         <>
           <Hero />
           <TrustedBy />
@@ -123,7 +131,7 @@ const App = () => {
         </>
       )}
 
-      <Footer theme={theme} />
+      <Footer theme={theme} showQuboAI={showQuboAI} />
 
       {/* Custom Cursor Ring */}
       {/* <div ref={outlineRef} className='hidden lg:block fixed top-0 left-0 h-10 w-10 rounded-full border border-primary pointer-events-none z-[9999]'

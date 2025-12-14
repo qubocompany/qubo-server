@@ -2,7 +2,9 @@ import React from 'react'
 import assets from '../assets/assets'
 import { motion } from 'motion/react'
 
-const Footer = ({ theme }) => {
+const Footer = ({ theme, showQuboAI }) => {
+  if (showQuboAI) return null; // Hide footer completely on Qubo AI page as it is a full screen experience
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}

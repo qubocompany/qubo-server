@@ -3,7 +3,7 @@ import assets from '../assets/assets'
 import ThemeToggleBtn from './ThemeToggleBtn'
 import { motion } from "motion/react"
 
-const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolSpace, setShowOurProjects }) => {
+const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolSpace, setShowOurProjects, setShowQuboAI, showQuboAI }) => {
 
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [popupOpen, setPopupOpen] = useState(false) // State for popup visibility
@@ -17,6 +17,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
       setShowContact(false)
       setShowToolSpace(false)
       setShowOurProjects(false)
+      setShowQuboAI(false)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else if (section === 'contact-us') {
       setActivePage('contact-us')
@@ -24,6 +25,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
       setShowProducts(false)
       setShowToolSpace(false)
       setShowOurProjects(false)
+      setShowQuboAI(false)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else if (section === 'tool-space') {
       setActivePage('tool-space')
@@ -31,9 +33,19 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
       setShowProducts(false)
       setShowContact(false)
       setShowOurProjects(false)
+      setShowQuboAI(false)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else if (section === 'qubo-ai') {
+      setActivePage('qubo-ai')
+      setShowQuboAI(true)
+      setShowProducts(false)
+      setShowContact(false)
+      setShowToolSpace(false)
+      setShowOurProjects(false)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else {
       setActivePage(section === 'hero' ? 'home' : section)
+      setShowQuboAI(false)
       setShowProducts(false)
       setShowContact(false)
       setShowToolSpace(false)
@@ -55,7 +67,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
-        className='flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 fixed top-0 left-0 right-0 z-20 backdrop-blur-md font-medium bg-white/95 dark:bg-gray-900/90 shadow-sm'>
+        className={`flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 fixed top-0 left-0 right-0 z-20 backdrop-blur-md font-medium shadow-sm transition-colors duration-300 ${showQuboAI ? 'bg-transparent shadow-none text-white' : 'bg-white/95 dark:bg-gray-900/90'}`}>
 
         <img
           src={theme === 'dark' ? assets.logo_dark || 'https://via.placeholder.com/150' : assets.logo}
@@ -71,6 +83,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
           <a onClick={() => handleNavigation('services')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'services' ? 'border-b-2 border-primary' : ''}`}>Services</a>
           <a onClick={() => handleNavigation('products')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'products' ? 'border-b-2 border-primary' : ''}`}>Products</a>
           <a onClick={() => handleNavigation('tool-space')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'tool-space' ? 'border-b-2 border-primary' : ''}`}>Tool Space</a>
+          <a onClick={() => handleNavigation('qubo-ai')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'qubo-ai' ? 'border-b-2 border-primary' : ''}`}>Qubo AI</a>
           <a onClick={() => handleNavigation('contact-us')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'contact-us' ? 'border-b-2 border-primary' : ''}`}>Contact us</a>
         </div>
 
@@ -118,3 +131,4 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
 }
 
 export default Navbar
+
