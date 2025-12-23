@@ -84,7 +84,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
           <a onClick={() => handleNavigation('products')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'products' ? 'border-b-2 border-primary' : ''}`}>Products</a>
           <a onClick={() => handleNavigation('tool-space')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'tool-space' ? 'border-b-2 border-primary' : ''}`}>Tool Space</a>
           <a onClick={() => handleNavigation('qubo-ai')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'alphery-ai' ? 'border-b-2 border-primary' : ''}`}>Alphery Ai</a>
-          <a onClick={() => handleNavigation('contact-us')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'contact-us' ? 'border-b-2 border-primary' : ''}`}>Contact us</a>
+          <a onClick={() => setPopupOpen(true)} className='sm:hidden cursor-pointer'>Contact us</a>
         </div>
 
         <div className='flex items-center gap-2 sm:gap-4'>
@@ -96,7 +96,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
           <button
             onClick={() => setPopupOpen(true)}
             className='text-sm max-sm:hidden flex items-center gap-2 bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white px-6 py-2 rounded-full cursor-pointer hover:scale-103 transition-all'>
-            Connect <img src={assets.arrow_icon} width={14} alt="" />
+            Contact us <img src={assets.arrow_icon} width={14} alt="" />
           </button>
         </div>
       </motion.div>
@@ -114,14 +114,14 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className='relative w-[340px] p-6 rounded-[2rem] bg-white/85 dark:bg-black/85 backdrop-blur-md border border-white/20 shadow-2xl overflow-hidden'
+              className='relative w-[340px] p-6 rounded-[2.5rem] bg-white/70 dark:bg-black/60 backdrop-blur-2xl backdrop-saturate-150 border border-white/50 dark:border-white/20 shadow-2xl overflow-hidden'
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
               <div className="relative flex justify-between items-center mb-6 pl-2">
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 tracking-tight">Connect</h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">We'd love to hear from you</p>
+                  <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 tracking-tight">Connect with us</h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">Let's discuss what you need !</p>
                 </div>
                 <button
                   onClick={() => setPopupOpen(false)}
