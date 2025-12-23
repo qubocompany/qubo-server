@@ -49,10 +49,10 @@ const App = () => {
   const position = useRef({ x: 0, y: 0 })
 
   useEffect(() => {
-    // Hide loader after 3 seconds
+    // Loader timeout extended to 4.5s to finish animation cycle
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 3000)
+    }, 4500)
 
     return () => clearTimeout(timer)
   }, [])

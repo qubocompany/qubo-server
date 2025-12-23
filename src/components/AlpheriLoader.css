@@ -1,0 +1,193 @@
+/* Alpheri AI Loader Styles */
+
+.alpheri-loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #F9FAFA;
+}
+
+.alpheri-word-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  font-size: 3.5rem;
+  font-weight: 600;
+  font-family: 'Manrope', sans-serif;
+  user-select: none;
+  padding: 40px;
+  /* Ample padding for the orbit */
+}
+
+.alpheri-letter {
+  color: #1a1a2e;
+  display: inline-block;
+  line-height: 1;
+}
+
+.alpheri-purple {
+  color: #8B5CF6;
+}
+
+/* The "i" container */
+.alpheri-i-container {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 2px;
+}
+
+/* The "i" stem without dot */
+.alpheri-i-stem {
+  display: inline-block;
+  color: #1a1a2e;
+}
+
+/* Placeholder */
+.alpheri-dot-placeholder {
+  width: 10px;
+  height: 10px;
+  visibility: hidden;
+  margin-bottom: 4px;
+}
+
+/* The orbiting dot */
+.alpheri-orbiting-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #1a1a2e;
+
+  /* Start position: Centered on the dotless i */
+  left: 50%;
+  margin-left: -7px;
+  /* Shifted slightly left for perfect optical alignment */
+  top: 11px;
+  /* Precise vertical placement */
+
+  /* Precise Orbit Path */
+  offset-path: path('M 0 0 C 20 -90 -340 -90 -340 0 C -340 90 -20 90 0 0');
+  offset-rotate: 0deg;
+
+  /* Animation: 3.8s loop (Fits within 4.5s load time) */
+  animation: smoothOrbitReal 3.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  z-index: 20;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+  transform-origin: center center;
+}
+
+@keyframes smoothOrbitReal {
+
+  /* Phase 1: Rest & Wait (0-20%) */
+  0%,
+  20% {
+    offset-distance: 0%;
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+
+  /* Phase 2: Anticipation (23%) */
+  23% {
+    offset-distance: 0%;
+    transform: scale(1.25, 0.8);
+    /* Subtler squash */
+    animation-timing-function: cubic-bezier(0.3, 0, 0.8, 0.15);
+  }
+
+  /* Phase 3: Launch (25-30%) */
+  28% {
+    transform: scale(0.9, 1.1);
+    /* Slight stretch */
+    offset-distance: 3%;
+  }
+
+  /* Phase 4: Orbiting (30-80%) */
+  50% {
+    transform: scale(1);
+    offset-distance: 50%;
+    /* Far left */
+  }
+
+  /* Phase 5: Landing (85-90%) */
+  88% {
+    transform: scale(0.9, 1.1);
+    offset-distance: 98%;
+    animation-timing-function: ease-in;
+  }
+
+  90% {
+    offset-distance: 100%;
+    transform: scale(1.25, 0.8);
+    /* Subtler impact squash */
+    animation-timing-function: ease-out;
+  }
+
+  /* Phase 6: Recover & Long Rest (95-100%) */
+  95%,
+  100% {
+    offset-distance: 100%;
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .alpheri-word-wrapper {
+    font-size: 2.2rem;
+    padding: 30px;
+  }
+
+  .alpheri-orbiting-dot {
+    /* Smaller path for mobile */
+    offset-path: path('M 0 0 C 10 -70 -250 -70 -250 0 C -250 70 -10 70 0 0');
+    width: 9px;
+    height: 9px;
+    top: 9px;
+    /* Tighter on mobile too */
+    margin-left: -4.5px;
+  }
+
+  @keyframes smoothOrbitReal {
+
+    0%,
+    20% {
+      offset-distance: 0%;
+      transform: scale(1);
+    }
+
+    23% {
+      offset-distance: 0%;
+      transform: scale(1.25, 0.8);
+    }
+
+    28% {
+      transform: scale(0.9, 1.1);
+      offset-distance: 3%;
+    }
+
+    50% {
+      transform: scale(1);
+      offset-distance: 50%;
+    }
+
+    85% {
+      transform: scale(0.9, 1.15);
+      offset-distance: 98%;
+    }
+
+    87% {
+      offset-distance: 100%;
+      transform: scale(1.4, 0.7);
+    }
+
+    95%,
+    100% {
+      offset-distance: 100%;
+      transform: scale(1);
+    }
+  }
+}

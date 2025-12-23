@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'motion/react'
-import assets from '../assets/assets'
+import './AlpheriLoader.css'
 
 const Loader = () => {
   return (
@@ -11,24 +11,26 @@ const Loader = () => {
       className='fixed inset-0 z-50 flex items-center justify-center'
       style={{ backgroundColor: '#F9FAFA' }}
     >
-      <div className='relative flex items-center justify-center'>
-        <video
-          src={assets.qubo_loader}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className='w-80 h-80 object-contain relative z-10'
-          style={{ backgroundColor: '#F9FAFA' }}
-        />
-        {/* Radial gradient overlay to blend edges */}
-        <div
-          className='absolute inset-0 pointer-events-none z-20'
-          style={{
-            background: 'radial-gradient(circle, transparent 40%, #F9FAFA 80%)',
-            mixBlendMode: 'normal'
-          }}
-        />
+      <div className='alpheri-loader-container'>
+        {/* The word container with the orbiting dot */}
+        <div className='alpheri-word-wrapper'>
+          {/* Main text */}
+          <span className='alpheri-letter alpheri-purple'>A</span>
+          <span className='alpheri-letter'>l</span>
+          <span className='alpheri-letter'>p</span>
+          <span className='alpheri-letter'>h</span>
+          <span className='alpheri-letter'>e</span>
+          <span className='alpheri-letter'>r</span>
+          <span className='alpheri-letter'>y</span>
+          <span className='alpheri-letter'>&nbsp;</span>
+          <span className='alpheri-letter alpheri-purple'>A</span>
+          <span className='alpheri-letter alpheri-i-container'>
+            <span className='alpheri-i-stem'>ı</span>
+            <span className='alpheri-dot-placeholder'></span>
+            {/* The orbiting dot - Moved inside i-container for precise starting position */}
+            <div className='alpheri-orbiting-dot'></div>
+          </span>
+        </div>
       </div>
     </motion.div>
   )

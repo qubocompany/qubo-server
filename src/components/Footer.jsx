@@ -69,7 +69,7 @@ const Footer = ({ theme, showQuboAI }) => {
           viewport={{ once: true }}
           className='flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-600 dark:text-gray-400'>
 
-          <p>© 2025 The Qubo.company - All Rights Reserved.</p>
+          <p>© 2025 | The Alphery Labs - All Rights Reserved.</p>
 
           {/* Social Media Icons */}
           <div className='flex items-center gap-4'>

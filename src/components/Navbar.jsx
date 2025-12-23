@@ -67,7 +67,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
-        className={`flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 fixed top-0 left-0 right-0 z-20 backdrop-blur-md font-medium shadow-sm transition-colors duration-300 ${showQuboAI ? 'bg-transparent shadow-none text-white' : 'bg-white/95 dark:bg-gray-900/90'}`}>
+        className={`flex justify-between items-center px-4 sm:px-12 lg:px-24 xl:px-40 py-4 fixed top-0 left-0 right-0 z-20 backdrop-blur-md font-medium shadow-sm dark:shadow-none transition-colors duration-300 ${showQuboAI ? 'bg-transparent shadow-none text-white' : 'bg-white/95 dark:bg-black'}`}>
 
         <img
           src={theme === 'dark' ? assets.logo_dark || 'https://via.placeholder.com/150' : assets.logo}
@@ -83,7 +83,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
           <a onClick={() => handleNavigation('services')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'services' ? 'border-b-2 border-primary' : ''}`}>Services</a>
           <a onClick={() => handleNavigation('products')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'products' ? 'border-b-2 border-primary' : ''}`}>Products</a>
           <a onClick={() => handleNavigation('tool-space')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'tool-space' ? 'border-b-2 border-primary' : ''}`}>Tool Space</a>
-          <a onClick={() => handleNavigation('qubo-ai')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'qubo-ai' ? 'border-b-2 border-primary' : ''}`}>Qubo AI</a>
+          <a onClick={() => handleNavigation('qubo-ai')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'alphery-ai' ? 'border-b-2 border-primary' : ''}`}>Alphery Ai</a>
           <a onClick={() => handleNavigation('contact-us')} className={`sm:hover:border-b cursor-pointer transition-all ${activePage === 'contact-us' ? 'border-b-2 border-primary' : ''}`}>Contact us</a>
         </div>
 
