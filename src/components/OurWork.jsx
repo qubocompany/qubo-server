@@ -81,7 +81,7 @@ const OurWork = ({ setShowOurProjects }) => {
         .project-card-glow {
           position: absolute;
           inset: -3px;
-          background: linear-gradient(135deg, #32009E, #8200FF);
+          background: linear-gradient(135deg, #5044E5, #4d8cea);
           border-radius: 16px;
           opacity: 0;
           transition: opacity 0.4s ease;
@@ -189,7 +189,7 @@ const OurWork = ({ setShowOurProjects }) => {
                         setShowOurProjects(true)
                         window.scrollTo({ top: 0, behavior: 'smooth' })
                     }}
-                    className='mt-6 px-8 py-3 rounded-full bg-gradient-to-r from-[#32009E] to-[#8200FF] text-white font-medium hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'
+                    className='mt-6 px-8 py-3 rounded-full bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white font-medium hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'
                 >
                     See More
                 </motion.button>
@@ -247,7 +247,7 @@ const OurWork = ({ setShowOurProjects }) => {
                                 href={selectedProject.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#32009E] to-[#8200FF] text-white font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
+                                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
                             >
                                 <span>View Live Project</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">

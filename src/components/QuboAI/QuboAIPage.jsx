@@ -71,7 +71,7 @@ function QuboAIPage() {
                             animate={{ opacity: 1, clipPath: 'inset(0 0 0 0)' }}
                             exit={{ opacity: 0, clipPath: 'inset(0 0 0 100%)' }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#32009E] via-[#8A84FF] to-[#8200FF] drop-shadow-sm tracking-wide py-2"
+                            className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#5044E5] via-[#8A84FF] to-[#4d8cea] drop-shadow-sm tracking-wide py-2"
                             style={{ lineHeight: 1.2 }}
                         >
                             {aiResponse}

@@ -35,7 +35,7 @@ const ProductCard = ({ product, index }) => {
       
       {/* Gradient Effect */}
       <div
-        className={`pointer-events-none blur-3xl rounded-full bg-gradient-to-r from-[#32009E] to-[#8200FF] w-[200px] h-[200px] absolute z-0 transition-opacity duration-500 mix-blend-lighten ${
+        className={`pointer-events-none blur-3xl rounded-full bg-gradient-to-r from-[#5044E5] to-[#4d8cea] w-[200px] h-[200px] absolute z-0 transition-opacity duration-500 mix-blend-lighten ${
           visible ? 'opacity-50' : 'opacity-0'
         }`}
         style={{ top: position.y - 100, left: position.x - 100 }}
@@ -97,7 +97,7 @@ const ProductCard = ({ product, index }) => {
             <button
               onClick={handleBuyNow}
               disabled={!product.inStock}
-              className='flex-1 py-2 px-3 text-xs font-medium bg-gradient-to-r from-[#32009E] to-[#8200FF] text-white rounded-lg hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed'
+              className='flex-1 py-2 px-3 text-xs font-medium bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white rounded-lg hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed'
             >
               Buy Now
             </button>

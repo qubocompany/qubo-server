@@ -52,7 +52,7 @@ const Products = () => {
               key={index}
               onClick={() => setSelectedCategory(category)}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedCategory === category
-                ? 'bg-gradient-to-r from-[#32009E] to-[#8200FF] text-white shadow-lg'
+                ? 'bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white shadow-lg'
                 : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
                 }`}
             >

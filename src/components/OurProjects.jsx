@@ -85,8 +85,8 @@ const OurProjects = () => {
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
                             className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm sm:text-base font-medium transition-all duration-300 border ${activeCategory === cat
-                                ? 'bg-gradient-to-r from-[#32009E] to-[#8200FF] text-white border-transparent shadow-lg scale-105'
-                                : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-[#32009E] dark:hover:border-[#32009E] hover:text-[#32009E] dark:hover:text-[#32009E]'
+                                ? 'bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white border-transparent shadow-lg scale-105'
+                                : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-[#5044E5] dark:hover:border-[#5044E5] hover:text-[#5044E5] dark:hover:text-[#5044E5]'
                                 }`}
                         >
                             {cat}
@@ -217,7 +217,7 @@ const OurProjects = () => {
                                 href={selectedProject.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#32009E] to-[#8200FF] text-white font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
+                                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
                             >
                                 <span>View Live Project</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
