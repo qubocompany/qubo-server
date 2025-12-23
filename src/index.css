@@ -49,9 +49,9 @@ body {
 
 /* Theme colors - Restoring Tailwind Config */
 @theme {
-  --color-primary: #5044E5;
-  --color-primary-light: #4d8cea;
-  --gradient-primary: linear-gradient(to right, #5044E5, #4d8cea);
+  --color-primary: #32009E;
+  --color-primary-light: #8200FF;
+  --gradient-primary: linear-gradient(to right, #32009E, #8200FF);
 }
 
 @keyframes shimmer {

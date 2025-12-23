@@ -38,11 +38,11 @@ const Footer = ({ theme, showQuboAI }) => {
             <div className='pr-6 border-r border-gray-300 dark:border-gray-600'>
               <h3 className='font-semibold text-gray-800 dark:text-gray-200 mb-4'>Quick Links</h3>
               <ul className='space-y-2 text-sm text-gray-700 dark:text-gray-400'>
-                <li><a className='hover:text-[#5044E5] transition-colors' href="#hero">Home</a></li>
-                <li><a className='hover:text-[#5044E5] transition-colors' href="#products">Products</a></li>
-                <li><a className='hover:text-[#5044E5] transition-colors' href="#services">Services</a></li>
-                <li><a className='hover:text-[#5044E5] transition-colors' href="#our-work">Our Work</a></li>
-                <li><a className='hover:text-[#5044E5] transition-colors' href="#contact-us">Contact Us</a></li>
+                <li><a className='hover:text-[#32009E] transition-colors' href="#hero">Home</a></li>
+                <li><a className='hover:text-[#32009E] transition-colors' href="#products">Products</a></li>
+                <li><a className='hover:text-[#32009E] transition-colors' href="#services">Services</a></li>
+                <li><a className='hover:text-[#32009E] transition-colors' href="#our-work">Our Work</a></li>
+                <li><a className='hover:text-[#32009E] transition-colors' href="#contact-us">Contact Us</a></li>
               </ul>
             </div>
 
@@ -50,10 +50,10 @@ const Footer = ({ theme, showQuboAI }) => {
             <div className='pl-6'>
               <h3 className='font-semibold text-gray-800 dark:text-gray-200 mb-4'>Support</h3>
               <ul className='space-y-2 text-sm text-gray-700 dark:text-gray-400'>
-                <li><a className='hover:text-[#5044E5] transition-colors' href="#terms">Terms and Conditions</a></li>
-                <li><a className='hover:text-[#5044E5] transition-colors' href="#faqs">FAQs</a></li>
-                <li><a className='hover:text-[#5044E5] transition-colors' href="#legal">Legal Formalities</a></li>
-                <li><a className='hover:text-[#5044E5] transition-colors' href="#attestations">Attestations</a></li>
+                <li><a className='hover:text-[#32009E] transition-colors' href="#terms">Terms and Conditions</a></li>
+                <li><a className='hover:text-[#32009E] transition-colors' href="#faqs">FAQs</a></li>
+                <li><a className='hover:text-[#32009E] transition-colors' href="#legal">Legal Formalities</a></li>
+                <li><a className='hover:text-[#32009E] transition-colors' href="#attestations">Attestations</a></li>
               </ul>
             </div>
           </div>

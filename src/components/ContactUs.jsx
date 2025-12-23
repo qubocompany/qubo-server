@@ -38,7 +38,7 @@ const ContactUs = ({ isPage = false }) => {
       <div className='grid lg:grid-cols-2 gap-10 w-full max-w-6xl lg:bg-white lg:dark:bg-gray-900 lg:rounded-3xl lg:shadow-2xl lg:overflow-hidden'>
 
         {/* Left Side - Contact Info */}
-        <div className='bg-gradient-to-br from-[#5044E5] to-[#4d8cea] p-10 sm:p-12 text-white flex flex-col justify-between gap-10 rounded-3xl shadow-2xl lg:shadow-none lg:rounded-none'>
+        <div className='bg-gradient-to-br from-[#32009E] to-[#8200FF] p-10 sm:p-12 text-white flex flex-col justify-between gap-10 rounded-3xl shadow-2xl lg:shadow-none lg:rounded-none'>
           <div>
             <h3 className='text-3xl font-semibold mb-4'>Get in Touch</h3>
             <p className='text-white/80 mb-8'>We are here to help you with any questions or concerns you may have.</p>
@@ -104,26 +104,26 @@ const ContactUs = ({ isPage = false }) => {
 
             <div>
               <p className='mb-2 text-sm font-medium text-gray-600 dark:text-gray-300'>Name</p>
-              <input name="name" type="text" placeholder='Enter your name' className='w-full p-3 text-sm rounded-lg border border-gray-300 dark:border-gray-600 outline-none focus:border-[#5044E5] dark:bg-gray-800 dark:text-white transition-colors' required />
+              <input name="name" type="text" placeholder='Enter your name' className='w-full p-3 text-sm rounded-lg border border-gray-300 dark:border-gray-600 outline-none focus:border-[#32009E] dark:bg-gray-800 dark:text-white transition-colors' required />
             </div>
 
             <div className='grid sm:grid-cols-2 gap-6'>
               <div>
                 <p className='mb-2 text-sm font-medium text-gray-600 dark:text-gray-300'>Email</p>
-                <input name="email" type="email" placeholder='Enter your email' className='w-full p-3 text-sm rounded-lg border border-gray-300 dark:border-gray-600 outline-none focus:border-[#5044E5] dark:bg-gray-800 dark:text-white transition-colors' required />
+                <input name="email" type="email" placeholder='Enter your email' className='w-full p-3 text-sm rounded-lg border border-gray-300 dark:border-gray-600 outline-none focus:border-[#32009E] dark:bg-gray-800 dark:text-white transition-colors' required />
               </div>
               <div>
                 <p className='mb-2 text-sm font-medium text-gray-600 dark:text-gray-300'>Phone Number</p>
-                <input name="mobile" type="tel" placeholder='Enter phone number' className='w-full p-3 text-sm rounded-lg border border-gray-300 dark:border-gray-600 outline-none focus:border-[#5044E5] dark:bg-gray-800 dark:text-white transition-colors' required />
+                <input name="mobile" type="tel" placeholder='Enter phone number' className='w-full p-3 text-sm rounded-lg border border-gray-300 dark:border-gray-600 outline-none focus:border-[#32009E] dark:bg-gray-800 dark:text-white transition-colors' required />
               </div>
             </div>
 
             <div>
               <p className='mb-2 text-sm font-medium text-gray-600 dark:text-gray-300'>What you need ?</p>
-              <textarea name="message" rows={4} placeholder='Enter your message' className='w-full p-3 text-sm rounded-lg border border-gray-300 dark:border-gray-600 outline-none focus:border-[#5044E5] dark:bg-gray-800 dark:text-white transition-colors resize-none' required />
+              <textarea name="message" rows={4} placeholder='Enter your message' className='w-full p-3 text-sm rounded-lg border border-gray-300 dark:border-gray-600 outline-none focus:border-[#32009E] dark:bg-gray-800 dark:text-white transition-colors resize-none' required />
             </div>
 
-            <button type="submit" className='w-full bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white font-medium py-3 rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all duration-300'>
+            <button type="submit" className='w-full bg-gradient-to-r from-[#32009E] to-[#8200FF] text-white font-medium py-3 rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all duration-300'>
               Send
             </button>
           </motion.form>

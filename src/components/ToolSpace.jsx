@@ -19,7 +19,7 @@ const ToolSpace = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
                 className='inline-flex items-center gap-2 border border-gray-300 p-1.5 pr-4 rounded-full mb-4'>
-                <div className='w-7 h-7 rounded-full bg-gradient-to-r from-[#5044E5] to-[#4d8cea] flex items-center justify-center'>
+                <div className='w-7 h-7 rounded-full bg-gradient-to-r from-[#32009E] to-[#8200FF] flex items-center justify-center'>
                     <svg className='w-3.5 h-3.5 text-white' fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
                     </svg>
@@ -35,7 +35,7 @@ const ToolSpace = () => {
                 className='text-4xl sm:text-5xl md:text-6xl xl:text-[84px] font-medium xl:leading-[95px] max-w-5xl mb-6'>
                 Welcome to{' '}
                 <span
-                    className='bg-clip-text text-transparent bg-[linear-gradient(to_right,#5044E5,#4d8cea,#8A84FF,#4d8cea,#5044E5)] bg-[length:200%_auto] lg:animate-shimmer'>
+                    className='bg-clip-text text-transparent bg-[linear-gradient(to_right,#32009E,#8200FF,#8A84FF,#8200FF,#32009E)] bg-[length:200%_auto] lg:animate-shimmer'>
                     Tool Space
                 </span>
             </motion.h1>
@@ -87,9 +87,9 @@ const ToolSpace = () => {
                 ].map((tool, index) => {
                     const CardContent = (
                         <>
-                            <div className='absolute inset-0 bg-gradient-to-br from-[#5044E5]/10 to-[#4d8cea]/10 opacity-0 group-hover:opacity-100 transition-opacity'></div>
+                            <div className='absolute inset-0 bg-gradient-to-br from-[#32009E]/10 to-[#8200FF]/10 opacity-0 group-hover:opacity-100 transition-opacity'></div>
                             <div className='relative z-10 flex flex-col items-center text-center'>
-                                <div className='w-12 h-12 rounded-xl bg-gradient-to-r from-[#5044E5] to-[#4d8cea] flex items-center justify-center mb-3'>
+                                <div className='w-12 h-12 rounded-xl bg-gradient-to-r from-[#32009E] to-[#8200FF] flex items-center justify-center mb-3'>
                                     <svg className='w-6 h-6 text-white' fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={tool.icon} />
                                     </svg>

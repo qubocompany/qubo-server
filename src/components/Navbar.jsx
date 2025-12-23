@@ -95,7 +95,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
 
           <button
             onClick={() => setPopupOpen(true)}
-            className='text-sm max-sm:hidden flex items-center gap-2 bg-gradient-to-r from-[#5044E5] to-[#4d8cea] text-white px-6 py-2 rounded-full cursor-pointer hover:scale-103 transition-all'>
+            className='text-sm max-sm:hidden flex items-center gap-2 bg-gradient-to-r from-[#32009E] to-[#8200FF] text-white px-6 py-2 rounded-full cursor-pointer hover:scale-103 transition-all'>
             Connect <img src={assets.arrow_icon} width={14} alt="" />
           </button>
         </div>
@@ -108,7 +108,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
           onClick={() => setPopupOpen(false)} // Close popup when clicking outside
         >
           <div
-            className='bg-gradient-to-r from-[#5044E5] to-[#4d8cea] p-10 rounded-lg shadow-2xl w-96 sm:w-[550px] flex flex-col gap-8 relative'
+            className='bg-gradient-to-r from-[#32009E] to-[#8200FF] p-10 rounded-lg shadow-2xl w-96 sm:w-[550px] flex flex-col gap-8 relative'
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
           >
             <button
@@ -118,10 +118,10 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
               ✖
             </button>
             <div className='grid grid-cols-2 gap-6'>
-              <button className='bg-white text-[#5044E5] font-semibold px-6 py-8 rounded-lg text-center hover:shadow-lg hover:scale-105 transition-all'>Call Us</button>
-              <button className='bg-white text-[#5044E5] font-semibold px-6 py-8 rounded-lg text-center hover:shadow-lg hover:scale-105 transition-all'>Connect with WhatsApp</button>
-              <button className='bg-white text-[#5044E5] font-semibold px-6 py-8 rounded-lg text-center hover:shadow-lg hover:scale-105 transition-all'>Check with Instagram</button>
-              <button className='bg-white text-[#5044E5] font-semibold px-6 py-8 rounded-lg text-center hover:shadow-lg hover:scale-105 transition-all'>Quote Us</button>
+              <button className='bg-white text-[#32009E] font-semibold px-6 py-8 rounded-lg text-center hover:shadow-lg hover:scale-105 transition-all'>Call Us</button>
+              <button className='bg-white text-[#32009E] font-semibold px-6 py-8 rounded-lg text-center hover:shadow-lg hover:scale-105 transition-all'>Connect with WhatsApp</button>
+              <button className='bg-white text-[#32009E] font-semibold px-6 py-8 rounded-lg text-center hover:shadow-lg hover:scale-105 transition-all'>Check with Instagram</button>
+              <button className='bg-white text-[#32009E] font-semibold px-6 py-8 rounded-lg text-center hover:shadow-lg hover:scale-105 transition-all'>Quote Us</button>
             </div>
           </div>
         </div>
