@@ -71,7 +71,7 @@ const Navbar = ({ theme, setTheme, setShowProducts, setShowContact, setShowToolS
 
         <img
           src={theme === 'dark' ? assets.logo_dark || 'https://via.placeholder.com/150' : assets.logo}
-          className='w-32 sm:w-40'
+          className='w-24 sm:w-32'
           alt='Logo'
         />
 
